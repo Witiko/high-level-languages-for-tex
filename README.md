@@ -4,10 +4,13 @@ Tento repozitář obsahuje zdrojový kód článku *Vysokoúrovňové jazyky pro
 Zpravodaje CSTUGu 2022/1–4. Článek je připravený ve vysokoúrovňovém značkovacím
 jazyce Markdown a sestává z následujících souborů:
 
+- `main.tex` – TeXový dokument, který při překladu vysází PDF dokument
+  [`main.pdf`][1] s článkem
 - `main.md` – Zdrojový kód článku ve vysokoúrovňovém značkovacím jazyce Markdown
-- `markdownthemewitiko_csbulletin.sty` – Téma pro LaTeXový balíček Markdown,
-  které udává vzhled jednotlivých značek jazyka Markdown
-- `main.tex` – TeXový dokument, který při překladu vysází článek
+- `markdownthemewitiko_csbulletin.sty` – Téma `witiko/csbulletin` pro TeXový
+  balíček Markdown, které udává vzhled jednotlivých značek jazyka Markdown
+
+ [1]: https://github.com/Witiko/high-level-languages-for-tex/releases/download/latest/main.pdf
 
 Článek vysázíte následujícím příkazem:
 
