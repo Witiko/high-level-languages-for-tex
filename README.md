@@ -12,8 +12,9 @@ jazyce Markdown a sestává z následujících souborů:
 
  [1]: https://github.com/Witiko/high-level-languages-for-tex/releases/download/latest/main.pdf
 
-Článek vysázíte následujícím příkazem:
+Článek vysázíte následujícími příkazy:
 
 ``` tex
+vlna -r -l -v KkSsVvZzOoUuAaIi main.md
 latexmk -pdf -shell-escape main.tex
 ```
