@@ -1,8 +1,17 @@
 # Vysokoúrovňové jazyky pro TeX
 
 Tento repozitář obsahuje zdrojový kód článku *Vysokoúrovňové jazyky pro TeX* ze
-Zpravodaje CSTUGu 2022/1–4. Článek je připravený ve vysokoúrovňových jazycích
-Markdown a BibLaTeX a sestává z následujících souborů:
+Zpravodaje CSTUGu 2022/1–4.
+
+Článek vysázíte následujícími příkazy:
+
+``` tex
+vlna -r -l -v KkSsVvZzOoUuAaIi main.md
+latexmk -pdf -shell-escape main.tex
+```
+
+Článek je připravený ve vysokoúrovňových jazycích Markdown a BibLaTeX a sestává
+z následujících souborů:
 
 - `main.tex` – TeXový dokument, který při překladu vysází PDF dokument
   [`main.pdf`][1] s článkem
@@ -14,10 +23,3 @@ Markdown a BibLaTeX a sestává z následujících souborů:
   BibLaTeX pro knihovníky
 
  [1]: https://github.com/Witiko/high-level-languages-for-tex/releases/download/latest/main.pdf
-
-Článek vysázíte následujícími příkazy:
-
-``` tex
-vlna -r -l -v KkSsVvZzOoUuAaIi main.md
-latexmk -pdf -shell-escape main.tex
-```
