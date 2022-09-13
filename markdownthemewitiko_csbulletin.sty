@@ -1,0 +1,113 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{markdownthemewitiko_csbulletin}[2021/11/18]
+
+% Metadata
+\markdownSetup{
+  jekyllData,
+  renderers = {
+    jekyllDataEnd = {
+      \markdownSetup{
+        renderers = {
+          strongEmphasis = {%
+            \textsc{\MakeLowercase{##1}}%
+          },
+        }
+      }%
+      \maketitle[1ex]%
+      \vspace*{-1.5em}%
+      \begin{abstract}%
+    },
+    interblockSeparator = {},
+  },
+}
+\RequirePackage{expl3}
+\ExplSyntaxOn
+\keys_define:nn
+  { markdown/jekyllData }
+  {
+    title        .code:n = { \title{#1} },
+    englishTitle .code:n = { \EnglishTitle{#1} },
+    author       .code:n = { \author{#1} },
+    podpis       .code:n = { \podpis{#1} },
+  }
+\ExplSyntaxOff
+
+% Listings
+\RequirePackage{minted}
+\AtBeginEnvironment{minted}{\let\textit\textsl}
+\usemintedstyle{bw}
+\usepackage{bold-extra}
+
+% Graphicx
+\RequirePackage{graphicx}
+\setkeys{Gin}{
+  width=\textwidth,
+  height=0.4\paperheight,
+  keepaspectratio,
+}
+\graphicspath{{./figs/}}
+\def\fps@figure{tbhp!}
+
+%% Definitions of various Unicode characters
+\RequirePackage{newunicodechar}
+\newunicodechar{·}{\textcolor{Gray}{$\cdot$}}
+\newunicodechar{◥}{\rotatebox[origin=c]{165}{\ensuremath{\triangledown}}\!}
+\newunicodechar{◤}{\!\rotatebox[origin=c]{195}{\ensuremath{\triangledown}}}
+
+% Markup
+\markdownSetup{
+  renderers = {
+    contentBlock = {%
+      \markdownRendererImage{#2}{#2}{#3}{#4}%
+    },
+    link = {%
+      \ifthenelse{\equal{#1}{#3}}{%
+        \url{#3}%
+      }{%
+        #1\footnote{\raggedright
+          Vizte 
+          \url{#3}\if\empty#4\empty\else, #4\fi.%
+        }%
+      }%
+    }, 
+    headingOne = {\section{#1}},
+    headingTwo = {\subsection{#1}},
+    headingThree = {\subsubsection{\itshape #1}},
+    emphasis = {\gdef\ulozenaklicovaslova{#1}},
+    horizontalRule = {%
+      \end{abstract}%
+      \klicovaslova: \ulozenaklicovaslova
+      \par\vspace*{1em}\noindent
+      \markdownSetup{
+        renderers = {
+          interblockSeparator = {%
+            \markdownSetup{
+              renderers = {
+                interblockSeparator = {%
+                  \par
+                }
+              }
+            }%
+          },
+          emphasis = {\emph{##1}},
+          horizontalRule = {%
+            \section{Odkazy}%
+            \printbibliography[heading=none]
+            \markdownSetup{
+              renderers = {
+                emphasis = {\keywords: ####1},
+                horizontalRule = {%
+                  \end{summary}%
+                  \csbul@podepis
+                }
+              },
+            }%
+            \vspace*{-1em}%
+            \begin{summary}%
+            \vspace*{-0.5em}%
+          }
+        },
+      }%
+    },
+  },
+}

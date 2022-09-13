@@ -1,0 +1,34 @@
+name: Typeset paper
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+env:
+  DEBIAN_FRONTEND: noninteractive
+jobs:
+  typeset-paper:
+    name: Typeset paper
+    runs-on: ubuntu-latest
+    container:
+      image: witiko/markdown:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Apply vlna
+        run: vlna -r -l -v KkSsVvZzOoUuAaIi main.md
+      - name: Typeset paper
+        run: latexmk -pdf -shell-escape main.tex
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: main
+          path: main.pdf
+      - name: Create a prerelease
+        if: github.ref == 'refs/heads/main'
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          title: The latest version
+          automatic_release_tag: latest
+          prerelease: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          files: main.pdf

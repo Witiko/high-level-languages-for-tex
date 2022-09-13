@@ -1,0 +1,27 @@
+\documentclass{csbulletin}
+\selectlanguage{czech}
+\usepackage[utf8]{inputenc}
+\usepackage[all]{nowidow}
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=iso-numeric,
+  sortlocale=cs,
+  autolang=other,
+  bibencoding=UTF8,
+  mincitenames=2,
+  maxcitenames=2,
+]{biblatex}
+\addbibresource{main.bib}
+\usepackage[
+  citations,
+  contentBlocks,
+  fencedCode,
+  footnotes,
+  hybrid,
+  theme=witiko/csbulletin,
+]{markdown}
+\usepackage{hologo}
+\begin{document}
+\markdownInput{main.md}
+\end{document}
