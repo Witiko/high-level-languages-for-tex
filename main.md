@@ -1,8 +1,6 @@
 ---
-title: |
-  Vysokoúrovňové jazyky pro \TeX
-englishTitle: |
-  High-Level Languages for \TeX
+title: Vysokoúrovňové jazyky pro \TeX
+englishTitle: High-Level Languages for \TeX
 author: Vít Novotný
 podpis: Vít Novotný, witiko@mail.muni.cz
 ---
