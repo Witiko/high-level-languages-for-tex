@@ -18,7 +18,7 @@ valném shromáždění \CSTUG u 14. května 2022. [@novotny2022vysokourovnove]
 **XML**, **XSL**, \hologo{ConTeXt}, **HTML**, markdown, **YAML**, Ti$k$Z,
 Bib\LaTeX, Ly\hologo{LuaTeX}*
 
-***
+* * *
 
 # Programovací jazyky pro vývojáře
 # Značkovací jazyky pro spisovatele
@@ -26,7 +26,7 @@ Bib\LaTeX, Ly\hologo{LuaTeX}*
 # Doménově specifické jazyky pro experty
 # Závěr
 
-***
+* * *
 
 \TeX{} is the assembly language of digital typesetting, which requires advanced
 programming skills from authors and designers, and which provides few
@@ -42,4 +42,4 @@ languages, \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, \LaTeXe, \LaTeX3,
 expl3, **XML**, **XSL**, \hologo{ConTeXt}, **HTML**, markdown, **YAML**,
 Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
 
-***
+* * *
