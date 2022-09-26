@@ -2,6 +2,9 @@
 \ProvidesPackage{markdownthemewitiko_csbulletin}[2021/11/18]
 
 % Metadata
+\newcommand\acro[1]{%
+  \textsc{\MakeLowercase{#1}}%
+}
 \markdownSetup{
   jekyllData,
   renderers = {
@@ -9,7 +12,7 @@
       \markdownSetup{
         renderers = {
           strongEmphasis = {%
-            \textsc{\MakeLowercase{##1}}%
+            \acro{##1}%
           },
         }
       }%
@@ -103,3 +106,4 @@
 %% Definitions of various Unicode characters
 \RequirePackage{newunicodechar}
 \newunicodechar{←}{\noindent\ignorespaces}
+\newunicodechar{ế}{\'{\^{e}}}

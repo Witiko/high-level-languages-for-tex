@@ -72,10 +72,11 @@ a programové výbavy namísto nízkoúrovňového \TeX u.
        10 už je využíváno \TeX em. Při větším množství značek by proto
        jednotlivá interpunkční znaménka odpovídala několika různým značkám.
        Vyřešení nejednoznačností by vyžadovalo buďto složitou lexikální a
-       syntaktickou analýzu textu, pro kterou \TeX{} nemá vhodná primitiva ani
-       datové typy, nebo bychom museli interpunkci ve značkách použít způsobem,
-       který usnadňuje analýzu na úkor čitelnosti. Proto se při větším množství
-       značek typicky místo interpunkce používají upovídaná \TeX ová makra.
+       syntaktickou analýzu textu, pro kterou \TeX{} nemá vhodné primitivní
+       datové typy ani příkazy, nebo bychom museli interpunkci ve značkách
+       použít způsobem, který usnadňuje analýzu na úkor čitelnosti. Proto se
+       při větším množství značek typicky místo interpunkce používají upovídaná
+       \TeX ová makra.
 
  /un-lion-de-paris.pdf "Un Lion de Paris (Grandville, 1840--1842)"
 
@@ -86,7 +87,25 @@ stylových a dalších doménově specifických vysokoúrovňových jazyků pro 
 V sekci~<#zaver> shrnuji poznatky z článku a zamýšlím se nad dalším směřováním
 \TeX u a vysokoúrovňových jazyků jako takových.
 
-# \TeX{} jako strojový jazyk digitální sazby {#tex}
+# \TeX{} jako strojový kód digitální sazby {#tex}
+
+\TeX{} je nízkoúrovňový programovací jazyk pro digitální sazbu [@knuth1984texbook].
+Referenční implementací \TeX u je interpretr (tzv. *\TeX ový stroj*) \TeX 90 od
+prof. Knutha [@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eTeX}
+[@breitenlohner1998etex], \hologo{pdfTeX} [@thanh2022pdftex] a \hologo{LuaTeX}
+[@luatex2022luatex] rozšiřují \TeX 90 o dodatečné primitivní příkazy, které
+zvyšují vývojářský komfort.  *Makrobalíky* jako plain [@knuth2021plain],
+\LaTeX{} [@lamport1994latex] a \hologo{ConTeXt} [@hagen2001context] staví z
+primitiv \TeX ových strojů vysokoúrovňové značkovací a programovací jazyky pro
+spisovatele a vývojáře.
+
+Na průsečíku strojů a makrobalíků vznikají *formáty* jako Lua\LaTeX{} a
+\hologo{ConTeXt} MkIV. Formáty odpovídají kombinaci konkrétního formátu a
+makrobalíku, např. $\text{\hologo{LuaTeX}} + \text{\LaTeX} = \text{Lua\LaTeX}$
+a $\text{\hologo{LuaTeX}} + \text{\hologo{ConTeXt}} = \text{\hologo{ConTeXt}
+MkIV}$. S formáty pracuje sazeč při překladu dokumentu z příkazové řádky pomocí
+příkazů jako `lualatex` a `context`.
+
 # Programovací jazyky pro vývojáře {#programovaci-jazyky}
 # Značkovací jazyky pro spisovatele {#znackovaci-jazyky}
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
