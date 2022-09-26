@@ -93,6 +93,11 @@ V sekci~<#zaver> shrnuji poznatky z článku a zamýšlím se nad dalším smě�
 # Doménově specifické jazyky pro experty {#domenove-specificke-jazyky}
 # Závěr {#zaver}
 
+<!-- Budoucím vysokoúrovňovým programovacím, značkovacím i stylovým jazykem
+     může být díky posunům v umělé inteligenci i přirozený jazyk.
+     Postmoderna, David Hume a *is/ought*, Transformery, Google Co-Pilot a
+     stable diffusion. -->
+
 <!-- Plutarch: Education is not the filling of a pail, but the lighting of a fire.
      Tento dokument je na GitHubu. Pěkný zdrojový text znamená, že nepotřebuji
      WYSIWYG a ve skutečnosti mě rozptyluje. -->
