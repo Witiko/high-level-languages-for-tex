@@ -5,9 +5,9 @@ author: Vít Novotný
 podpis: Vít Novotný, witiko@mail.muni.cz
 ---
 
-\TeX{} je assembler světa digitální sazby, který od spisovatelů a grafických
+\TeX{} je strojový kód světa digitální sazby, který od spisovatelů a grafických
 návrhářů vyžaduje netriviální programátorské dovednosti a který programátorům
-poskytuje minimum vysokoúrovňových abstrakcí. V článku představím existující
+poskytuje minimum vysokoúrovňových abstrakcí. V článku představuji vybrané
 značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělbu práce
 mezi spisovatelů, vývojáře a grafické návrháře a které usnadňují proces
 přípravy elektronických dokumentů. Článek je volný přepis mé přednášky na
@@ -112,20 +112,34 @@ příkazů jako `lualatex` a `context`.
 # Doménově specifické jazyky pro experty {#domenove-specificke-jazyky}
 # Závěr {#zaver}
 
-<!-- Budoucím vysokoúrovňovým programovacím, značkovacím i stylovým jazykem
-     může být díky posunům v umělé inteligenci i přirozený jazyk.
-     Postmoderna, David Hume a *is/ought*, Transformery, Google Co-Pilot a
-     stable diffusion. -->
+\TeX{} je strojový kód světa digitální sazby, který od spisovatelů a grafických
+návrhářů vyžaduje netriviální programátorské dovednosti a který programátorům
+poskytuje minimum vysokoúrovňových abstrakcí. V článku jsme si představili
+značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělbu práce
+mezi spisovatele, vývojáře a grafické návrháře a které usnadňují proces
+přípravy elektronických dokumentů. Představené jazyky netvoří úplný výčet.
+Namísto toho jsem se v článku pokusil nastínit možnosti moderních \TeX ových
+strojů a software mimo \TeX ové distribuce na příkladu několika jazyků.
 
-<!-- Plutarch: Education is not the filling of a pail, but the lighting of a fire.
-     Tento dokument je na GitHubu. Pěkný zdrojový text znamená, že nepotřebuji
-     WYSIWYG a ve skutečnosti mě rozptyluje. -->
+Veškeré představené jazyky jsou umělé a od přirozených jazyků se liší tím, že
+jsou syntakticky jednoznačné a snadno strojově čitelné.[^3] Toto je dnes v
+informatice natolik běžné, že se nad tím ani nepozastavujeme, ale jedná se o
+překážku pro doménové experty, kteří ovládají svůj mateřský jazyk, ale nejsou
+vystudovaní informatici. V posledních pěti letech došlo na poli umělé
+inteligence k významným posunům [@devlin2018bert; @brown2020language], které
+zvyšují strojovou čitelnost přirozeného jazyka. Zároveň se objevují první
+služby, jako je GitHub Copilot, které umožňují automaticky generovat kód
+programu na základě pokynů zadaných v přirozeném jazyce. Budoucím
+vysokoúrovňovým značkovacím, programovacím i stylovým jazykem proto může být
+i přirozený jazyk.
+
+[^3]: Tedy skoro vším s výjimkou lexika, které se může povrchně podobat angličtině
 
 * * *
 
 \TeX{} is the assembly language of digital typesetting, which requires advanced
 programming skills from authors and designers, and which provides few
-high-level abstractions to programmers. In this article, I introduce existing
+high-level abstractions to programmers. In this article, I introduce selected
 markup, programming, and style-sheet languages for \TeX, which enable the
 division of labor between authors, programmers, and designers, and which
 simplify the process of electronic document preparation. The article
