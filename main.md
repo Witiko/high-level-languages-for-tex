@@ -136,11 +136,11 @@ strojů a software mimo \TeX ové distribuce na příkladu několika jazyků.
 
 Veškeré jazyky, které jsme si představili v článku, jsou uměle navržené tak,
 aby byly syntakticky jednoznačné a snadno strojově čitelné. Tím se zcela liší
-od přirozených jazyků, které jsou víceznačné a jejich strojové zpracování bylo
+od přirozeného jazyka, který je víceznačný a jeho strojové zpracování bylo
 svatým grálem informatiky od jejího vzniku. Umělé jazyky jsou překážkou pro
 doménové experty, kteří ovládají svůj mateřský jazyk, ale nejsou vystudovaní
 informatici. V posledních pěti letech došlo na poli umělé inteligence k
-významným posunům~% [@devlin2018bert] [@brown2020language], které zvyšují
+významným posunům~[@devlin2018bert] [@brown2020language], které zvýšily
 strojovou čitelnost přirozeného jazyka a umožňují automaticky generovat kód
 programu na základě pokynů zadaných v přirozeném jazyce~[@papers2022code].
 Budoucím vysokoúrovňovým značkovacím,[^5] programovacím i stylovým jazykem
@@ -148,9 +148,9 @@ proto může být přirozený jazyk.[^4]
 
  [^4]: Posuny v umělé inteligenci se týkají i dalších modalit, jako je obraz~%
        [@lu2019vilbert] To grafikovi umožní doplnit textový popis o nákresy;
-       obrázek za tisíc slov. Tuto primární dokumentaci můžeme strojově
-       přeložit na stylopis v umělém stylovém jazyce nižší úrovně, jako je
-       **CSS**.
+       obrázek za tisíc slov. Tuto primární dokumentaci můžeme kdykoliv
+       strojově přeložit na stylopis v umělém stylovém jazyce nižší úrovně,
+       jako je **CSS**.
 
  [^5]: Dnešní jazykové modely dokážou v písemném projevu opravit překlepy~%
        [@zhou2019spelling] a doplnit chybějící interpunkci~[@zhu2021retrieving].
@@ -159,7 +159,8 @@ proto může být přirozený jazyk.[^4]
        pohled by se tedy zdálo, že doplňování chybějících značek je typově
        stejný problém jako doplňování chybějící interpunkce a k jeho řešení je
        možné použít stejné techniky. Tuto hypotézu by bylo vhodné ověřit na
-       kolekcích označkovaných textů.
+       kolekcích označkovaných textů, jako jsou např. webové stránky
+       označkované v jazyce **HTML**.
 
 * * *
 
