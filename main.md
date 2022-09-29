@@ -11,7 +11,7 @@ poskytuje minimum vysokoúrovňových abstrakcí. V článku představuji vybran
 značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělbu práce
 mezi spisovatelů, vývojáře a grafické návrháře a které usnadňují proces
 přípravy elektronických dokumentů. Článek je volný přepis mé přednášky na
-valném shromáždění \CSTUG u 14. května 2022. [@novotny2022vysokourovnove]
+valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
 
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
 \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, \LaTeXe, \LaTeX3, expl3,
@@ -89,13 +89,13 @@ V sekci~<#zaver> shrnuji poznatky z článku a zamýšlím se nad dalším smě�
 
 # \TeX{} jako strojový kód digitální sazby {#tex}
 
-\TeX{} je nízkoúrovňový programovací jazyk pro digitální sazbu [@knuth1984texbook].
+\TeX{} je nízkoúrovňový programovací jazyk pro digitální sazbu~[@knuth1984texbook].
 Referenční implementací \TeX u je interpretr (tzv. *\TeX ový stroj*) \TeX 90 od
-prof. Knutha [@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eTeX}
-[@breitenlohner1998etex], \hologo{pdfTeX} [@thanh2022pdftex] a \hologo{LuaTeX}
+prof. Knutha~[@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eTeX}~%
+[@breitenlohner1998etex], \hologo{pdfTeX}~[@thanh2022pdftex] a \hologo{LuaTeX}~%
 [@luatex2022luatex] rozšiřují \TeX 90 o dodatečné primitivní příkazy, které
-zvyšují vývojářský komfort.  *Makrobalíky* jako plain [@knuth2021plain],
-\LaTeX{} [@lamport1994latex] a \hologo{ConTeXt} [@hagen2001context] staví z
+zvyšují vývojářský komfort.  *Makrobalíky* jako plain~[@knuth2021plain],
+\LaTeX~[@lamport1994latex] a \hologo{ConTeXt}~[@hagen2001context] staví z
 primitiv \TeX ových strojů vysokoúrovňové značkovací a programovací jazyky pro
 spisovatele a vývojáře.
 
@@ -121,12 +121,14 @@ přípravy elektronických dokumentů. Představené jazyky netvoří úplný v�
 Namísto toho jsem se v článku pokusil nastínit možnosti moderních \TeX ových
 strojů a software mimo \TeX ové distribuce na příkladu několika jazyků.
 
+# Výhled do budoucnosti {#vyhled-do-budoucnosti}
+
 Veškeré představené jazyky jsou umělé a od přirozených jazyků se liší tím, že
 jsou syntakticky jednoznačné a snadno strojově čitelné.[^3] Toto je dnes v
 informatice natolik běžné, že se nad tím ani nepozastavujeme, ale jedná se o
 překážku pro doménové experty, kteří ovládají svůj mateřský jazyk, ale nejsou
 vystudovaní informatici. V posledních pěti letech došlo na poli umělé
-inteligence k významným posunům [@devlin2018bert; @brown2020language], které
+inteligence k významným posunům~[@devlin2018bert; @brown2020language], které
 zvyšují strojovou čitelnost přirozeného jazyka. Zároveň se objevují první
 služby, jako je GitHub Copilot, které umožňují automaticky generovat kód
 programu na základě pokynů zadaných v přirozeném jazyce. Budoucím
@@ -144,7 +146,7 @@ markup, programming, and style-sheet languages for \TeX, which enable the
 division of labor between authors, programmers, and designers, and which
 simplify the process of electronic document preparation. The article
 transcribes my invited talk at the general assembly of \CSTUG{} on May 14,
-2022. [@novotny2022vysokourovnove]
+2022.~[@novotny2022vysokourovnove]
 
 *high-level languages, programming languages, markup languages, style-sheet
 languages, \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, \LaTeXe, \LaTeX3,
