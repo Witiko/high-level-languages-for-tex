@@ -125,9 +125,9 @@ strojů a software mimo \TeX ové distribuce na příkladu několika jazyků.
 
 Veškeré představené jazyky jsou umělé a od přirozených jazyků se liší tím, že
 jsou syntakticky jednoznačné a snadno strojově čitelné.[^3] Toto je dnes v
-informatice natolik běžné, že se nad tím ani nepozastavujeme, ale jedná se o
-překážku pro doménové experty, kteří ovládají svůj mateřský jazyk, ale nejsou
-vystudovaní informatici.
+informatice natolik běžné, že se nad tím ani nepozastavujeme. Jedná se ale o
+překážku pro doménové experty, kteří ovládají svůj mateřský jazyk a své
+řemeslo, ale nejsou vystudovaní informatici.
 
 V posledních pěti letech došlo na poli umělé inteligence k významným posunům~%
 [@devlin2018bert] [@brown2020language], které zvyšují strojovou čitelnost
