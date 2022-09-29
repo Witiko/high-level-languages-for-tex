@@ -123,25 +123,32 @@ strojů a software mimo \TeX ové distribuce na příkladu několika jazyků.
 
 # Výhled do budoucnosti {#vyhled-do-budoucnosti}
 
-Veškeré představené jazyky jsou umělé a od přirozených jazyků se liší tím, že
-jsou syntakticky jednoznačné a snadno strojově čitelné.[^3] Toto je dnes v
-informatice natolik běžné, že se nad tím ani nepozastavujeme. Jedná se ale o
-překážku pro doménové experty, kteří ovládají svůj mateřský jazyk a své
-řemeslo, ale nejsou vystudovaní informatici.
+Veškeré jazyky, které jsme si představili v článku, jsou uměle navržené tak,
+aby byly syntakticky jednoznačné a snadno strojově čitelné. Tím se zcela liší
+od přirozených jazyků, které jsou víceznačné a jejich strojové zpracování bylo
+svatým grálem informatiky od jejího vzniku. Umělé jazyky jsou překážkou pro
+doménové experty, kteří ovládají svůj mateřský jazyk, ale nejsou vystudovaní
+informatici. V posledních pěti letech došlo na poli umělé inteligence k
+významným posunům~% [@devlin2018bert] [@brown2020language], které zvyšují
+strojovou čitelnost přirozeného jazyka a umožňují automaticky generovat kód
+programu na základě pokynů zadaných v přirozeném jazyce~[@papers2022code].
+Budoucím vysokoúrovňovým značkovacím,[^5] programovacím i stylovým jazykem
+proto může být přirozený jazyk.[^4]
 
-V posledních pěti letech došlo na poli umělé inteligence k významným posunům~%
-[@devlin2018bert] [@brown2020language], které zvyšují strojovou čitelnost
-přirozeného jazyka. Zároveň se objevují první služby, jako je GitHub Copilot,
-které umožňují automaticky generovat kód programu na základě pokynů zadaných v
-přirozeném jazyce. Budoucím vysokoúrovňovým značkovacím, programovacím i
-stylovým jazykem proto může být i přirozený jazyk.
+ [^4]: Posuny v umělé inteligenci se týkají i dalších modalit, jako je obraz~%
+       [@lu2019vilbert] To grafikovi umožní doplnit textový popis o nákresy;
+       obrázek za tisíc slov. Tuto primární dokumentaci můžeme strojově
+       přeložit na stylopis v umělém stylovém jazyce nižší úrovně, jako je
+       **CSS**.
 
-<!-- Jazykový model na horizontální a vertikální členění textu. -->
-
-<!-- Pro stylové jazyky mohou být vhodnější i jiné modality, jako je obraz
-     (nákresy). -->
-
-[^3]: Tedy skoro vším s výjimkou lexika, které se může povrchně podobat angličtině
+ [^5]: Dnešní jazykové modely dokážou v písemném projevu opravit překlepy~%
+       [@zhou2019spelling] a doplnit chybějící interpunkci~[@zhu2021retrieving].
+       O značkovacích jazycích můžeme uvažovat jako o rozšířené množině
+       interpunkčních znamének, která nám umožňují text dále členit. Na první
+       pohled by se tedy zdálo, že doplňování chybějících značek je typově
+       stejný problém jako doplňování chybějící interpunkce a k jeho řešení je
+       možné použít stejné techniky. Tuto hypotézu by bylo vhodné ověřit na
+       kolekcích označkovaných textů.
 
 * * *
 
