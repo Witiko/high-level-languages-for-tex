@@ -109,6 +109,15 @@ příkazů jako `lualatex` a `context`.
 # Programovací jazyky pro vývojáře {#programovaci-jazyky}
 # Značkovací jazyky pro spisovatele {#znackovaci-jazyky}
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
+
+<!-- https://www.texdev.net/2009/01/19/latex3-key-points/ -->
+<!-- https://www.ctan.org/pkg/xtemplate -->
+
+<!-- https://tex.stackexchange.com/a/118015/70941 -->
+<!-- http://zeeba.tv/latex3-architecture-and-current-work-in-progress/ -->
+<!-- https://www.latex-project.org/publications/2011-FMi-TUG-LaTeX3-architecture-slides.pdf -->
+<!-- https://tug.org/TUGboat/tb32-3/tb102abstracts.pdf -->
+
 # Doménově specifické jazyky pro experty {#domenove-specificke-jazyky}
 # Závěr {#zaver}
 
@@ -122,6 +131,8 @@ Namísto toho jsem se v článku pokusil nastínit možnosti moderních \TeX ov�
 strojů a software mimo \TeX ové distribuce na příkladu několika jazyků.
 
 # Výhled do budoucnosti {#vyhled-do-budoucnosti}
+
+<!-- Absence deklarativních stylových jazyků (CSS, CSL) je Achillova pata TeXu? -->
 
 Veškeré jazyky, které jsme si představili v článku, jsou uměle navržené tak,
 aby byly syntakticky jednoznačné a snadno strojově čitelné. Tím se zcela liší
