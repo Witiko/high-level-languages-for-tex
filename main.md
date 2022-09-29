@@ -84,8 +84,8 @@ V sekci~<#tex> shrnuji pojmy související s \TeX em, jako jsou stroje,
 makrobalíky a formáty. V sekcích <#programovaci-jazyky> až
 <#domenove-specificke-jazyky> nabízím přehled programovacích, značkovacích,
 stylových a dalších doménově specifických vysokoúrovňových jazyků pro \TeX.
-V sekci~<#zaver> shrnuji poznatky z článku a zamýšlím se nad dalším směřováním
-\TeX u a vysokoúrovňových jazyků jako takových.
+V sekci~<#zaver> shrnuji poznatky z článku. V sekci~<#vyhled-do-budoucnosti> se
+zamýšlím nad dalším směřováním \TeX u a vysokoúrovňových jazyků jako takových.
 
 # \TeX{} jako strojový kód digitální sazby {#tex}
 
@@ -127,13 +127,19 @@ Veškeré představené jazyky jsou umělé a od přirozených jazyků se liší
 jsou syntakticky jednoznačné a snadno strojově čitelné.[^3] Toto je dnes v
 informatice natolik běžné, že se nad tím ani nepozastavujeme, ale jedná se o
 překážku pro doménové experty, kteří ovládají svůj mateřský jazyk, ale nejsou
-vystudovaní informatici. V posledních pěti letech došlo na poli umělé
-inteligence k významným posunům~[@devlin2018bert; @brown2020language], které
-zvyšují strojovou čitelnost přirozeného jazyka. Zároveň se objevují první
-služby, jako je GitHub Copilot, které umožňují automaticky generovat kód
-programu na základě pokynů zadaných v přirozeném jazyce. Budoucím
-vysokoúrovňovým značkovacím, programovacím i stylovým jazykem proto může být
-i přirozený jazyk.
+vystudovaní informatici.
+
+V posledních pěti letech došlo na poli umělé inteligence k významným posunům~%
+[@devlin2018bert] [@brown2020language], které zvyšují strojovou čitelnost
+přirozeného jazyka. Zároveň se objevují první služby, jako je GitHub Copilot,
+které umožňují automaticky generovat kód programu na základě pokynů zadaných v
+přirozeném jazyce. Budoucím vysokoúrovňovým značkovacím, programovacím i
+stylovým jazykem proto může být i přirozený jazyk.
+
+<!-- Jazykový model na horizontální a vertikální členění textu. -->
+
+<!-- Pro stylové jazyky mohou být vhodnější i jiné modality, jako je obraz
+     (nákresy). -->
 
 [^3]: Tedy skoro vším s výjimkou lexika, které se může povrchně podobat angličtině
 
