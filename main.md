@@ -15,8 +15,9 @@ valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
 
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
 \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX, \LaTeXe, \LaTeX3,
-Python\TeX, expl3, **XML**, **TEI**, **XSLT**, **CSS**, \hologo{ConTeXt},
-**HTML**, markdown, **YAML**, Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
+Python\TeX, expl3, **XML**, DocBook, **TEI**, **XHTML**, **XSLT**, **CSS**,
+\hologo{ConTeXt}, **HTML**, markdown, **YAML**, Pandoc, Ti$k$Z, Bib\LaTeX,
+Ly\hologo{LuaTeX}*
 
 * * *
 
@@ -44,7 +45,7 @@ jen na jednu z nich a věnovat jí svou plnou a ničím nerušenou pozornost.
        lze tedy snadno rozdělit na dílčí části bez újmy na celku.
 
 \TeX ový dokument můžeme rozdělit na obsah, stylopisy a programovou výbavu
-jednoduše tak, že vytvoříme tři samostatné soubory
+jednoduše tak, že vytvoříme tři samostatné soubory:
 
 - text dokumentu označkovaný \TeX ovými makry,
 - stylopis s nastavením délkových registrů, písem, výstupní rutiny, apod.,
@@ -211,7 +212,7 @@ jejich využití v \TeX u.
 > toho prostého důvodu, že \LaTeX{} dává spisovateli do rukou příliš velkou moc:
 > Vždy existuje další balíček, který můžeme zavést v preambuli, stejně jako
 > vždy existuje další rozbalovací nabídka ve Wordu.
-> --- @thompson2010pandoc [, v překladu autora]
+> ---~@thompson2010pandoc [, v překladu autora]
 
 Formát \LaTeXe{} poskytuje jednoduchý značkovací jazyk pro přípravu dokumentů,
 který je možné rozšiřovat pomocí balíčků:
@@ -236,7 +237,7 @@ příkazy \LaTeX u jako `\textbf` a primitivní příkazy \TeX ového stroje jak
 nedostatků, které nelze řešit systémově. Nadměrné užití nízkoúrovňových příkazů
 narušuje dělbu práce a vede k nejednotnému vzhledu dokumentu.
 
-Mimo svět \TeX u jsou populární značkovací jazyky založené na metajazyku
+Mimo svět \TeX u jsou oblíbené značkovací jazyky založené na metajazyku
 **XML**. Můžeme si navrhnout buďto svůj vlastní **XML** jazyk~%
 [@wagner2017kombinace], nebo využít existující jazyk jako DocBook, **TEI**,
 nebo **XHTML** (vizte níže):
@@ -279,9 +280,42 @@ připravit stylopis v jazyce **XSLT**, který náš dokument převede z jazyka
 ```
 ← **XML** jazyky mají nadstandardní podporu v softwarových knihovnách, což
 usnadňuje další zpracování dokumentů. Na rozdíl od \LaTeX u nemůže spisovatel v
-**XML** snadno řešit konkrétní typografické nedostatky, což ztěžuje přípravu
-akcidenčních a nízkonákladových dokumentů. Vysoký poměr značek vůči textu nutí
-spisovatele použít specializovaný textový editor pro snadný zápis.
+**XML** jazycích snadno řešit konkrétní typografické nedostatky, což ztěžuje
+přípravu akcidenčních a nízkonákladových dokumentů. Vysoký poměr značek vůči
+textu nutí spisovatele použít specializovaný textový editor pro snadný zápis.
+
+> V markdownu je spisovatel vždy konfrontován pouze s jednou otázkou, a je to
+> ta správná otázka: Jak by měla znít následující věta?
+> ---~@thompson2010pandoc [, v překladu autora]
+
+Odlehčené značkovací jazyky jako markdown~[@gruber2004markdown] a
+**YAML**oň[^9]~[@benkiki2021yaml] minimalizují poměr značek vůči textu pro
+snadný zápis a zvýšenou čitelnost:
+
+ [^9]: Podle vzoru jabloň
+
+``` yaml
+---
+title:  Ukázkový dokument v markdownu a YAMLoni
+author: Vít Novotný
+date:   2022-05-14
+lang:   cs
+---
+```
+``` md
+# Kapitola
+Ahoj, *markdowne* a YAMLoni!
+```
+
+← Pro zpracování našeho dokumentu \TeX em můžeme použít např. makrobalík
+Markdown~[@novotny2022markdown] nebo konverzní nástroj
+Pandoc~[@macfarlane2022pandoc].
+
+Různé značkovací jazyky mají různé výhody a může být výhodné je kombinovat.
+Markdown a **YAML** mohou být vhodné vstupní jazyky pro spisovatele. Pomocí
+Pandocu můžeme dokumenty převést do **XML** mezijazyka pro archivaci a další
+zpracování. Z **XML** mezijazyka získáme dokument v \LaTeX u, který může být
+vhodným výstupním jazykem pro sazeče.
 
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
 
@@ -304,9 +338,7 @@ návrhářů vyžaduje netriviální programátorské dovednosti a který progra
 poskytuje minimum vysokoúrovňových abstrakcí. V článku jsme si představili
 značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělbu práce
 mezi spisovatele, vývojáře a grafické návrháře a které usnadňují proces
-přípravy elektronických dokumentů. Představené jazyky netvoří úplný výčet.
-Namísto toho jsem se v článku pokusil nastínit možnosti moderních \TeX ových
-strojů a software mimo \TeX ové distribuce na příkladu několika jazyků.
+přípravy elektronických dokumentů.
 
 # Výhled do budoucnosti {#vyhled-do-budoucnosti}
 
@@ -353,8 +385,8 @@ transcribes my invited talk at the general assembly of \CSTUG{} on May 14,
 
 *high-level languages, programming languages, markup languages, style-sheet
 languages, \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX,
-\LaTeXe, \LaTeX3, Python\TeX, expl3, **XML**, **TEI**, **XSLT**, **CSS**,
-\hologo{ConTeXt}, **HTML**, markdown, **YAML**, Ti$k$Z, Bib\LaTeX,
-Ly\hologo{LuaTeX}*
+\LaTeXe, \LaTeX3, Python\TeX, expl3, **XML**, DocBook, **TEI**, **XHTML**,
+**XSLT**, **CSS**, \hologo{ConTeXt}, **HTML**, markdown, **YAML**, Pandoc,
+Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
 
 * * *
