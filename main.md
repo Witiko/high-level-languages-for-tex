@@ -114,7 +114,7 @@ Stroj \hologo{eTeX} a jeho následovníci jako \hologo{pdfTeX} a \hologo{LuaTeX}
 nabízí primitivní příkaz `\numexpr`, který vyhodnocuje celočíselné aritmetické
 výrazy:
 ``` tex
-$1 + 2 = \numexpr 1 + 2\relax$
+$ 1 + 2 = \numexpr 1 + 2 \relax $
 ```
 ← Příkaz `\numexpr` zvyšuje vývojářský komfort oproti ruční práci s registry.
 Pro další primitivní typy nabízí \hologo{eTeX} také příkazy `\dimexpr`,
@@ -123,7 +123,7 @@ Pro další primitivní typy nabízí \hologo{eTeX} také příkazy `\dimexpr`,
 Stroje \hologo{LuaTeX} a LuaMeta\TeX~[@luatex2022luametatex] nabízí primitivní
 příkaz `\directlua`, který umožňuje zadávat a spouštět programy v jazyce Lua:
 ``` tex
-$1 + 2 = \directlua{tex.print(1 + 2)}$
+$ 1 + 2 = \directlua { tex.print(1 + 2) } $
 ```
 ← Kromě základní knihovny jazyka Lua mohou vývojáři interagovat s \TeX ovým
 strojem a instalací \TeX u [@luatex2022luatex, kapitoly 5--10;
@@ -135,21 +135,70 @@ Stroje \hologo{pdfTeX} a \hologo{LuaTeX} rozšiřují primitivní příkaz `\inp
 variantu, která spouští libovolné programy pomocí příkazové řádky operačního
 systému:
 ```tex
-$1 + 2 = \input|" echo 1 + 2 | bc "\relax$
+$ 1 + 2 = \input|" echo 1 + 2 | bc "\relax $
 ```
 ← Toto je mocný nástroj, který nám umožňuje integrovat \TeX ový kód s širším
 ekosystémem programové výbavy mimo instalaci \TeX u.[^6] Toho využívá např.
 \LaTeX ový balíček *Python\TeX{}* [@poore2021pythontex], který umožňuje zadávat
 a spouštět programy v jazyce Python přímo z \TeX ových dokumentů.
 
- [^6]: Nevýhodou je, že výsledné \TeX ové dokumenty jsou vázané na konkrétní
-       příkazovou řádku a programovou výbavu, což omezuje jejich
-       přenositelnost. V našem příkladu se jedná o příkazovou řádku
-       Bourne shell z **UNIX**u~V7 (také `sh`), případně o zpětně kompatibilní
-       nadstavby jako `bash`, `dash` a `ksh`, a o unixovou kalkulačku Bench
-       calculator (`bc`). Většina Linuxových distribucí používá příkazovou
-       řádku kompatibilní s `sh` a zahrnuje `bc` v základní programové výbavě
-       a ukázkový dokument proto vysází.
+ [^6]: Nevýhodou rozšířené varianty příkazu `\input` je vazba na konkrétní
+       příkazovou řádku a programovou výbavu, což snižuje přenositelnost
+       dokumentů. V našem příkladu se jedná o příkazovou řádku Bourne shell z
+       **UNIX**u~V7 (také `sh`), případně o zpětně kompatibilní nadstavby jako
+       `bash`, `dash` a `ksh`, a o unixovou kalkulačku Bench calculator (`bc`).
+       Většina Linuxových distribucí používá příkazovou řádku kompatibilní s
+       `sh` a zahrnuje `bc` v základní programové výbavě; náš příklad na nich
+       tedy můžete bez úpravy vysázet příkazem `pdftex --shell-escape`.
+
+Součástí formátu \LaTeX3 je makrobalík `expl3-generic`, který zpřístupňuje
+vysokoúrovňový funkcionální programovací jazyk expl3 [@latex2022style]
+[@latex2022expl3] [@latex2022interfaces]:
+``` tex
+\input expl3-generic\relax
+\ExplSyntaxOn
+$ 1 + 2 = \int_eval:n { 1 + 2 } $
+\ExplSyntaxOff
+```
+← Jazyk expl3 nabízí vysokoúrovňové datové typy pro obecné programování
+(seznamy a hašové tabulky) a typografické programování (rakve[^7] a barvy) a
+bohatou základní knihovnu funkcí pro řízení toku programu a \TeX ové expanze,
+celočíselnou i reálnou aritmetiku a zpracování \TeX ových tokenů a unicodového
+textu. Jazyk expl3 využívá primitivní příkazy strojů \TeX 90, \hologo{eTeX} a
+pdf\TeX; funguje ale i s novějšími stroji, jako jsou \hologo{XeTeX},
+\hologo{LuaTeX} a LuaMeta\TeX{} [@latex2022expl3, sekce 9].
+
+ [^7]: Rakev (z anglického *coffin*) sestává z \TeX ového boxu, informací o
+       jeho tvaru a rozměrech a množiny vertikálních a horizonátálních přímek.
+       Průsečíky přímek tvoří úchyty rakve, které slouží k vzájemnému
+       pozicování rakví na stránce.
+
+Vývojáře zvyklé na kategorie znaků v konvenčních formátech jako plain \TeX,
+\LaTeX{} a \hologo{ConTeXt} mohou u explu překvapit podtržítka a dvojtečky s
+kategorií písmene (11) a bílé znaky (␣, ↵) s kategorií ignorovaného znaku (9).
+Studie však ukazují, že oddělování slov v identifikátorech pomocí\\\_podtržítek
+je čitelnější než oddělování slov pomocíKapitálek [@sharif2010eye], mezery jsou
+častým zdrojem chyb při programování v \TeX u [@olsak2001texbook, sekce 1.3] a
+dvojtečky v explu slouží pro oddělení názvu příkazu (`\int_eval`) od jeho
+typové signatury (`:n`).[^8]
+
+ [^8]: Typové signatury nám umožňují definovat příkazy s jiným typem argumentu,
+       než s jakým příkazy voláme. Můžeme si např. zadefinovat příkaz
+       `\pozdrav:n`, který bude přijímat jeden argument s tokeny jména:
+       ``` tex
+       \cs_new:Nn \pozdrav:n { Ahoj,~#1! }
+       ```
+       ← Při volání příkazu pro nás ale může být snazší použít jako argument
+       jméno seznamu tokenů:
+       ``` tex
+       \tl_new:N   \g_jmeno_tl
+       \tl_set:Nn  \g_jmeno_tl { světe }
+       %~-
+       \pozdrav:v { g_jmeno_tl }  \% Expanduje na \pozdrav:n{světe} a poté na Ahoj, světe!
+       %~+
+       ```
+       ← Díky typovým signaturám může expl3 automaticky přetypovat argumentů,
+       což zvyšuje komfort.
 
 # Značkovací jazyky pro spisovatele {#znackovaci-jazyky}
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
@@ -163,6 +212,9 @@ a spouštět programy v jazyce Python přímo z \TeX ových dokumentů.
 <!-- https://tug.org/TUGboat/tb32-3/tb102abstracts.pdf -->
 
 # Doménově specifické jazyky pro experty {#domenove-specificke-jazyky}
+
+<!-- BibTeXový záznam tohoto článku -->
+
 # Závěr {#zaver}
 
 \TeX{} je strojový kód světa digitální sazby, který od spisovatelů a grafických
@@ -203,8 +255,8 @@ proto může být přirozený jazyk.[^4]
        pohled by se tedy zdálo, že doplňování chybějících značek je typově
        stejný problém jako doplňování chybějící interpunkce a k jeho řešení je
        možné použít stejné techniky. Tuto hypotézu by bylo vhodné ověřit na
-       kolekcích označkovaných textů, jako jsou např. webové stránky
-       označkované v jazyce **HTML**.
+       kolekcích označkovaných textů, jako jsou webové stránky označkované v
+       jazyce **HTML**.
 
 * * *
 

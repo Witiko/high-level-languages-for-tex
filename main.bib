@@ -22,7 +22,7 @@
   volume = {A},
   title = {The \TeX book},
   year = {1984},
-  pages = {x+483},
+  pagetotal = {x+483},
   note = {V~současnosti jsou dostupné 35.~výtisk (měkká vazba, 2017)
     a 23.~výtisk (pevná vazba, 2021).},
 }
@@ -32,7 +32,7 @@
   volume = {B},
   title = {\TeX: The Program},
   year = {1986},
-  pages = {xvi+594},
+  pagetotal = {xvi+594},
   note = {Od pátého výtisku (1994) $\rm xvi+600$ stran.
     V~současnosti je dostupný 11.~výtisk (pevná vazba, 2021).},
 }
@@ -58,6 +58,34 @@
   url = {https://ctan.org/pkg/pdftex},
   urldate = {2022-09-26},
   publisher = {{CTAN}},
+}
+
+@online{l3kernel,
+  options = {dataonly},
+  author = {{The \LaTeX{} Project Team}},
+  date = {2022-09-28},
+  url = {https://ctan.org/pkg/l3kernel},
+  urldate = {2022-10-04},
+  publisher = {{CTAN}},
+}
+
+@online{latex2022style,
+  crossref = {l3kernel},
+  title = {The \LaTeX3 kernel},
+  subtitle = {style guide for code authors},
+  pagetotal = {5},
+}
+
+@online{latex2022expl3,
+  crossref = {l3kernel},
+  title = {The expl3 package and \LaTeX3 programming},
+  pagetotal = {16},
+}
+
+@online{latex2022interfaces,
+  crossref = {l3kernel},
+  title = {The \LaTeX3 interfaces},
+  pagetotal = {343},
 }
 
 @online{poore2021pythontex,
@@ -108,7 +136,7 @@
   edition = {2},
   date = {1994-06-30},
   isbn = {978-0201529838},
-  pages = {272},
+  pagetotal = {272},
   publisher = {{Addison\discretionary{-}{-}{-}Wesley}},
 }
 
@@ -221,4 +249,22 @@
   url = {https://arxiv.org/abs/2007.14062v2},
   volume = {33},
   year = {2020},
+}
+
+@inproceedings{sharif2010eye,
+  author = {Sharif, Bonita and Maletic, Jonathan I.},
+  booktitle = {2010 IEEE 18th International Conference on Program Comprehension}, 
+  title = {An Eye Tracking Study on camelCase and under\_score Identifier Styles}, 
+  year = {2010},
+  pages = {196-205},
+  doi = {10.1109/ICPC.2010.41},
+}
+
+@book{olsak2001texbook,
+  title = {\TeX book naruby},
+  author = {Petr Olšák},
+  year = {2001},
+  isbn = {80-7302-007-6},
+  edition = {2},
+  url = {http://petr.olsak.net/tbn.html},
 }
