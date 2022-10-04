@@ -91,7 +91,7 @@ zamýšlím nad dalším směřováním \TeX u a vysokoúrovňových jazyků jak
 
 \TeX{} je nízkoúrovňový programovací jazyk pro digitální sazbu~[@knuth1984texbook].
 Referenční implementací \TeX u je interpretr (tzv. *\TeX ový stroj*) \TeX 90 od
-prof. Knutha~[@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eTeX}~%
+profesora Knutha~[@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eTeX}~%
 [@breitenlohner1998etex], \hologo{pdfTeX}~[@thanh2022pdftex] a \hologo{LuaTeX}~%
 [@luatex2022luatex] rozšiřují \TeX 90 o dodatečné primitivní příkazy, které
 zvyšují vývojářský komfort.  *Makrobalíky* jako plain~[@knuth2021plain],
@@ -234,12 +234,12 @@ Ahoj, \LaTeX u!
 příkazy \LaTeX u jako `\textbf` a primitivní příkazy \TeX ového stroje jako
 `\vskip`. Toto může být vhodné pro řešení konkrétních typografických
 nedostatků, které nelze řešit systémově. Nadměrné užití nízkoúrovňových příkazů
-však narušuje dělbu práce a vede k nejednotnému vzhledu dokumentu.
+narušuje dělbu práce a vede k nejednotnému vzhledu dokumentu.
 
 Mimo svět \TeX u jsou populární značkovací jazyky založené na metajazyku
 **XML**. Můžeme si navrhnout buďto svůj vlastní **XML** jazyk~%
 [@wagner2017kombinace], nebo využít existující jazyk jako DocBook, **TEI**,
-nebo **XHTML** (viz níže):
+nebo **XHTML** (vizte níže):
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -248,19 +248,18 @@ nebo **XHTML** (viz níže):
         <title>Ukázkový dokument v XHTML</title>
         <meta name="author" content="Vít Novotný" />
     </head>
-<body>
-    <h1>Kapitola</h1>
-    <p>Ahoj, XHTML!</p>
-</body>
+    <body>
+        <h1>Kapitola</h1>
+        <p>Ahoj, XHTML!</p>
+    </body>
 </html>
 ```
 
-← Pro následné zpracování našeho dokumentu \TeX em můžeme využít buďto
-vestavěnou podporu **XML** v pokročilých \TeX ových formátech jako
+← Pro zpracování našeho dokumentu \TeX em můžeme využít buďto vestavěnou
+podporu **XML** v pokročilých \TeX ových formátech jako
 \hologo{ConTeXt}~[@contextgarden2022xml; @maier2019typesetting], nebo můžeme
 připravit stylopis v jazyce **XSLT**, který náš dokument převede z jazyka
-**XML** do \TeX ového formátu jako \LaTeXe, ve kterém ho již můžeme přímo
-vysázet:
+**XML** do \TeX ového formátu jako \LaTeXe, který již můžeme přímo vysázet:
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -268,22 +267,21 @@ vysázet:
             xmlns:xhtml="http://www.w3.org/1999/xhtml"
             version="1.0">
     <output method="text" />
-    <strip-space elements="*" />
-    <template match="node() | @*" name="identity">
-        <copy>
-            <apply-templates select="node() | @*"/>
-        </copy>
+    <template match="node() | @*">
+        <copy><apply-templates select="node() | @*"/></copy>
     </template>
-    <template match="xhtml:h1" name="chapter">
+    <template match="xhtml:h1">
         <text>\chapter{</text>
         <apply-templates/>
         <text>}</text>
     </template>
 </stylesheet>
 ```
-
-← Jazyky **XML** mají vysoký poměr značek vůči textu a vyžadují specializované
-textové editory pro snadný zápis.
+← **XML** jazyky mají nadstandardní podporu v softwarových knihovnách, což
+usnadňuje další zpracování dokumentů. Na rozdíl od \LaTeX u nemůže spisovatel v
+**XML** snadno řešit konkrétní typografické nedostatky, což ztěžuje přípravu
+akcidenčních a nízkonákladových dokumentů. Vysoký poměr značek vůči textu nutí
+spisovatele použít specializovaný textový editor pro snadný zápis.
 
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
 
