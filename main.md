@@ -14,9 +14,9 @@ přípravy elektronických dokumentů. Článek je volný přepis mé přednáš
 valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
 
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
-\hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, \LaTeXe, \LaTeX3, expl3,
-**XML**, **XSL**, **CSS**, \hologo{ConTeXt}, **HTML**, markdown, **YAML**,
-Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
+\hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX, \LaTeXe, \LaTeX3,
+Python\TeX, expl3, **XML**, **XSL**, **CSS**, \hologo{ConTeXt}, **HTML**, markdown,
+**YAML**, Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
 
 * * *
 
@@ -59,8 +59,8 @@ schopni nebo ochotni používat při své práci \TeX, což má několik důvod�
 - Moderní stylovací jazyky jako **CSS** jsou deklarativní a nepožadují
   programátorské dovednosti, zatímco \TeX{} je imperativní programovací jazyk.
 - Moderní programovací jazyky jako Python nabízí vysokoúrovňové abstrakce a
-  bohaté knihovny vestavěných funkcí, zatímco \TeX{} nabízí pouze primitivní
-  datové typy a operace nad nimi.
+  bohaté základní knihovny vestavěných funkcí, zatímco \TeX{} nabízí pouze
+  primitivní datové typy a operace nad nimi.
 
 ← Naštěstí existuje mnoho vysokoúrovňových jazyků pro \TeX, na které se výše
 uvedená omezení nevztahují a které můžeme použít pro přípravu obsahu, stylopisů
@@ -99,14 +99,58 @@ zvyšují vývojářský komfort.  *Makrobalíky* jako plain~[@knuth2021plain],
 primitiv \TeX ových strojů vysokoúrovňové značkovací a programovací jazyky pro
 spisovatele a vývojáře.
 
-Na průsečíku strojů a makrobalíků vznikají *formáty* jako Lua\LaTeX{} a
-\hologo{ConTeXt} MkIV. Formáty odpovídají kombinaci konkrétního formátu a
-makrobalíku, např. $\text{\hologo{LuaTeX}} + \text{\LaTeX} = \text{Lua\LaTeX}$
-a $\text{\hologo{LuaTeX}} + \text{\hologo{ConTeXt}} = \text{\hologo{ConTeXt}
-MkIV}$. S formáty pracuje sazeč při překladu dokumentu z příkazové řádky pomocí
-příkazů jako `lualatex` a `context`.
+*Formáty* odpovídají kombinaci konkrétního formátu a makrobalíku, např.
+$\text{\hologo{LuaTeX}} + \text{\LaTeX} = \text{Lua\LaTeX}$ a
+$\text{\hologo{LuaTeX}} + \text{\hologo{ConTeXt}} = \text{\hologo{ConTeXt}
+MkIV}$. S formáty pracuje sazeč při přípravě dokumentu z příkazové řádky
+operačního systému pomocí příkazů jako `lualatex` a `context`.
 
 # Programovací jazyky pro vývojáře {#programovaci-jazyky}
+
+V této sekci se podíváme na to, jaké možnosti nabízí moderní \TeX ové stroje
+a makrobalíky vývojářům.
+
+Stroj \hologo{eTeX} a jeho následovníci jako \hologo{pdfTeX} a \hologo{LuaTeX}
+nabízí primitivní příkaz `\numexpr`, který vyhodnocuje celočíselné aritmetické
+výrazy:
+``` tex
+$1 + 2 = \numexpr 1 + 2\relax$
+```
+← Příkaz `\numexpr` zvyšuje vývojářský komfort oproti ruční práci s registry.
+Pro další primitivní typy nabízí \hologo{eTeX} také příkazy `\dimexpr`,
+`\glueexpr` a `\muglueexpr`.
+
+Stroje \hologo{LuaTeX} a LuaMeta\TeX~[@luatex2022luametatex] nabízí primitivní
+příkaz `\directlua`, který umožňuje zadávat a spouštět programy v jazyce Lua:
+``` tex
+$1 + 2 = \directlua{tex.print(1 + 2)}$
+```
+← Kromě základní knihovny jazyka Lua mohou vývojáři interagovat s \TeX ovým
+strojem a instalací \TeX u [@luatex2022luatex, kapitoly 5--10;
+@luatex2022luametatex, kapitoly 4--10] a využívat rozšiřující softwarové
+knihovny pro práci se soubory a složité zpracování textu
+[@luatex2022luatex, sekce 4.3].
+
+Stroje \hologo{pdfTeX} a \hologo{LuaTeX} rozšiřují primitivní příkaz `\input` o
+variantu, která spouští libovolné programy pomocí příkazové řádky operačního
+systému:
+```tex
+$1 + 2 = \input|" echo 1 + 2 | bc "\relax$
+```
+← Toto je mocný nástroj, který nám umožňuje integrovat \TeX ový kód s širším
+ekosystémem programové výbavy mimo instalaci \TeX u.[^6] Toho využívá např.
+\LaTeX ový balíček *Python\TeX{}* [@poore2021pythontex], který umožňuje zadávat
+a spouštět programy v jazyce Python přímo z \TeX ových dokumentů.
+
+ [^6]: Nevýhodou je, že výsledné \TeX ové dokumenty jsou vázané na konkrétní
+       příkazovou řádku a programovou výbavu, což omezuje jejich
+       přenositelnost. V našem příkladu se jedná o příkazovou řádku
+       Bourne shell z **UNIX**u~V7 (také `sh`), případně o zpětně kompatibilní
+       nadstavby jako `bash`, `dash` a `ksh`, a o unixovou kalkulačku Bench
+       calculator (`bc`). Většina Linuxových distribucí používá příkazovou
+       řádku kompatibilní s `sh` a zahrnuje `bc` v základní programové výbavě
+       a ukázkový dokument proto vysází.
+
 # Značkovací jazyky pro spisovatele {#znackovaci-jazyky}
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
 
@@ -174,8 +218,8 @@ transcribes my invited talk at the general assembly of \CSTUG{} on May 14,
 2022.~[@novotny2022vysokourovnove]
 
 *high-level languages, programming languages, markup languages, style-sheet
-languages, \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, \LaTeXe, \LaTeX3,
-expl3, **XML**, **XSL**, **CSS**, \hologo{ConTeXt}, **HTML**, markdown,
-**YAML**, Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
+languages, \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX,
+\LaTeXe, \LaTeX3, Python\TeX, expl3, **XML**, **XSL**, **CSS**, \hologo{ConTeXt},
+**HTML**, markdown, **YAML**, Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
 
 * * *
