@@ -201,6 +201,40 @@ typové signatury (`:n`).[^8]
        což zvyšuje komfort.
 
 # Značkovací jazyky pro spisovatele {#znackovaci-jazyky}
+
+V této sekci se podíváme na některé existující značkovací jazyky a možnosti
+jejich využití v \TeX u.
+
+> Je překvapivě obtížné přesvědčit o tom uživatele, ale nedostatky \LaTeX u pro
+> koncentraci, psaní a myšlení si v ničem nezadají s nedostatky Wordu. Je to z
+> toho prostého důvodu, že \LaTeX{} dává spisovateli do rukou příliš velkou moc;
+> vždy existuje další balíček, který můžeme zavést v preambuli, stejně jako
+> vždy existuje další rozbalovací nabídka ve Wordu.
+> --- @thompson2010pandoc [, v překladu autora]
+
+Formát \LaTeXe{} poskytuje jednoduchý značkovací jazyk pro přípravu dokumentů,
+který je možné rozšiřovat pomocí balíčků:
+
+``` latex
+\documentclass{book}
+\usepackage[czech]{babel}
+\title{Ukázkový dokument v~\LaTeX u}
+\author{Vít Novotný}
+\date{14. května 2022}
+\begin{document}
+\maketitle
+\chapter{Kapitola}
+Ahoj, \LaTeX u!
+\end{document}
+```
+
+← Pokud nejsme spokojeni s automatickým výstupem vysokoúrovňových značek jako
+`\chapter`, značkovací jazyk \LaTeX u nám umožňuje používat nízkoúrovňové
+příkazy \LaTeX u jako `\textbf` a primitivní příkazy \TeX ového stroje jako
+`\vskip`. Toto může být vhodné pro řešení konkrétních typografických
+nedostatků, které nelze řešit systémově. Nadměrné užití nízkoúrovňových příkazů
+však narušuje dělbu práce a vede k nejednotnému vzhledu dokumentu.
+
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
 
 <!-- https://www.texdev.net/2009/01/19/latex3-key-points/ -->

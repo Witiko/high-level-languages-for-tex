@@ -66,6 +66,21 @@
     headingOne = {\section{#1}},
     headingTwo = {\subsection{#1}},
     headingThree = {\subsubsection{\itshape #1}},
+    blockQuoteBegin = {%
+      \begin{quote}%
+        \itshape
+        \markdownSetup{
+          renderers = {
+            textCite = {%
+              \upshape
+              \markdownRendererTextCitePrototype{#1}%
+            },
+          }
+        }%
+    },
+    blockQuoteEnd = {%
+      \end{quote}%
+    },
     emphasis = {\gdef\ulozenaklicovaslova{#1}},
     horizontalRule = {%
       \end{abstract}%
