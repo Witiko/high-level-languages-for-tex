@@ -185,12 +185,12 @@ typové signatury (`:n`).[^8]
 
  [^8]: Typové signatury nám umožňují definovat příkazy s jiným typem argumentu,
        než s jakým příkazy voláme. Můžeme si např. zadefinovat příkaz
-       `\pozdrav:n`, který bude přijímat jeden argument s tokeny jména:
+       `\pozdrav:n`, který bude přijímat jeden argument s \TeX ovými tokeny:
        ``` tex
        \cs_new:Nn \pozdrav:n { Ahoj,~#1! }
        ```
        ← Při volání příkazu pro nás ale může být snazší použít jako argument
-       jméno seznamu tokenů:
+       jméno proměnné:
        ``` tex
        \cs_generate_variant:Nn \pozdrav:n { v }
        \tl_new:N   \g_jmeno_tl
