@@ -15,8 +15,8 @@ valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
 
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
 \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX, \LaTeXe, \LaTeX3,
-Python\TeX, expl3, **XML**, **XSL**, **CSS**, \hologo{ConTeXt}, **HTML**, markdown,
-**YAML**, Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
+Python\TeX, expl3, **XML**, **TEI**, **XSLT**, **CSS**, \hologo{ConTeXt},
+**HTML**, markdown, **YAML**, Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
 
 * * *
 
@@ -207,8 +207,8 @@ jejich využití v \TeX u.
 
 > Je překvapivě obtížné přesvědčit o tom uživatele, ale nedostatky \LaTeX u pro
 > koncentraci, psaní a myšlení si v ničem nezadají s nedostatky Wordu. Je to z
-> toho prostého důvodu, že \LaTeX{} dává spisovateli do rukou příliš velkou moc;
-> vždy existuje další balíček, který můžeme zavést v preambuli, stejně jako
+> toho prostého důvodu, že \LaTeX{} dává spisovateli do rukou příliš velkou moc:
+> Vždy existuje další balíček, který můžeme zavést v preambuli, stejně jako
 > vždy existuje další rozbalovací nabídka ve Wordu.
 > --- @thompson2010pandoc [, v překladu autora]
 
@@ -234,6 +234,50 @@ příkazy \LaTeX u jako `\textbf` a primitivní příkazy \TeX ového stroje jak
 `\vskip`. Toto může být vhodné pro řešení konkrétních typografických
 nedostatků, které nelze řešit systémově. Nadměrné užití nízkoúrovňových příkazů
 však narušuje dělbu práce a vede k nejednotnému vzhledu dokumentu.
+
+Mimo svět \TeX u jsou populární značkovací jazyky založené na metajazyku
+**XML**. Můžeme si navrhnout buďto svůj vlastní **XML** jazyk~%
+[@wagner2017kombinace], nebo využít existující jazyk jako DocBook, **TEI**,
+nebo **XHTML** (viz níže):
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<html xml:lang="cs" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Ukázkový dokument v XHTML</title>
+        <meta name="author" content="Vít Novotný" />
+    </head>
+<body>
+    <h1>Kapitola</h1>
+    <p>Ahoj, XHTML!</p>
+</body>
+</html>
+```
+
+← Pro následné zpracování našeho dokumentu \TeX em můžeme využít buďto
+vestavěnou podporu **XML** v pokročilých \TeX ových formátech jako
+\hologo{ConTeXt}~[@contextgarden2022xml; @maier2019typesetting], nebo můžeme
+připravit stylopis v jazyce **XSLT**, který náš dokument převede z jazyka
+**XML** do \TeX ového formátu jako \LaTeXe, ve kterém ho již můžeme přímo
+vysázet:
+
+``` xml
+<?xml version="1.0" encoding="utf-8"?>
+<stylesheet xmlns="http://www.w3.org/1999/XSL/Transform"
+            xmlns:xhtml="http://www.w3.org/1999/xhtml"
+            version="1.0">
+    <output method="text" />
+    <template match="node() | @*" name="identity">
+        <copy><apply-templates select="node() | @*"/></copy>
+    </template>
+    <template match="xhtml:h1" name="chapter">
+        <text>\chapter{</text><apply-templates/><text>}</text>
+    </template>
+</stylesheet>
+```
+
+← Jazyky **XML** mají vysoký poměr značek vůči textu a vyžadují specializované
+textové editory pro snadný zápis.
 
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
 
@@ -305,7 +349,8 @@ transcribes my invited talk at the general assembly of \CSTUG{} on May 14,
 
 *high-level languages, programming languages, markup languages, style-sheet
 languages, \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX,
-\LaTeXe, \LaTeX3, Python\TeX, expl3, **XML**, **XSL**, **CSS**, \hologo{ConTeXt},
-**HTML**, markdown, **YAML**, Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
+\LaTeXe, \LaTeX3, Python\TeX, expl3, **XML**, **TEI**, **XSLT**, **CSS**,
+\hologo{ConTeXt}, **HTML**, markdown, **YAML**, Ti$k$Z, Bib\LaTeX,
+Ly\hologo{LuaTeX}*
 
 * * *
