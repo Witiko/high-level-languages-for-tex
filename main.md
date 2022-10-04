@@ -191,13 +191,14 @@ typové signatury (`:n`).[^8]
        ← Při volání příkazu pro nás ale může být snazší použít jako argument
        jméno seznamu tokenů:
        ``` tex
+       \cs_generate_variant:Nn \pozdrav:n { v }
        \tl_new:N   \g_jmeno_tl
        \tl_set:Nn  \g_jmeno_tl { světe }
        %~-
        \pozdrav:v { g_jmeno_tl }  \% Expanduje na \pozdrav:n{světe} a poté na Ahoj, světe!
        %~+
        ```
-       ← Díky typovým signaturám může expl3 automaticky přetypovat argumentů,
+       ← Díky typovým signaturám může expl3 automaticky přetypovat argumenty,
        což zvyšuje komfort.
 
 # Značkovací jazyky pro spisovatele {#znackovaci-jazyky}
@@ -267,11 +268,16 @@ vysázet:
             xmlns:xhtml="http://www.w3.org/1999/xhtml"
             version="1.0">
     <output method="text" />
+    <strip-space elements="*" />
     <template match="node() | @*" name="identity">
-        <copy><apply-templates select="node() | @*"/></copy>
+        <copy>
+            <apply-templates select="node() | @*"/>
+        </copy>
     </template>
     <template match="xhtml:h1" name="chapter">
-        <text>\chapter{</text><apply-templates/><text>}</text>
+        <text>\chapter{</text>
+        <apply-templates/>
+        <text>}</text>
     </template>
 </stylesheet>
 ```
