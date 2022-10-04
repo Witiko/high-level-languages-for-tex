@@ -31,13 +31,13 @@ jen na jednu z nich a věnovat jí svou plnou a ničím nerušenou pozornost.
  [^1]: Laskavý čtenář může namítnout, že rozdělení dokumentu na nezávislé části
        je fikce: Jsou obrázky v textu doménou spisovatele, nebo ilustrátora?
        Může spisovatel měnit písmo a barvu textu či způsob číslování seznamů,
-       nebo jde o úkol grafika? Kde jsou hranice mezi rolemi grafika, sazeče
-       a vývojáře?
+       nebo jde o úkol grafika? Kde jsou vlastně hranice mezi rolemi grafika,
+       sazeče a vývojáře?
 
        Tyto námitky jsou na místě především u akcidenčních a nízkonákladových
        dokumentů, jako jsou plakáty, básnické sbírky nebo jídelní a nápojové
        lístky. U takových dokumentů může být vhodnější zvolit celistvý přístup,
-       kdy jsou role fluidní a mezi účastníky procesu přípravy dokumentu
+       kdy jsou role volnější a mezi účastníky procesu přípravy dokumentu
        probíhá soustavná komunikace. Autor článku má zkušenosti převážně s
        přípravou odborných a technických dokumentů, u kterých jsou
        jednotvárnost a kompozicialita úmyslnými prvky stylu. Takové dokumenty
