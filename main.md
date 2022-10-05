@@ -170,7 +170,7 @@ pdf\TeX; funguje ale i s novějšími stroji, jako jsou \hologo{XeTeX},
 \hologo{LuaTeX} a LuaMeta\TeX{} [@latex2022expl3, sekce 9].
 
  [^7]: Rakev (z anglického *coffin*) sestává z \TeX ového boxu, informací o
-       jeho tvaru a rozměrech a množiny vertikálních a horizonátálních přímek.
+       jeho tvaru a rozměrech a množiny vertikálních a horizontálních přímek.
        Průsečíky přímek tvoří úchyty rakve, které slouží k vzájemnému
        pozicování rakví na stránce.
 
