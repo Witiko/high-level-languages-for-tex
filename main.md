@@ -16,7 +16,7 @@ valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
 \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX, \LaTeXe, \LaTeX3,
 Python\TeX, expl3, **XML**, DocBook, **TEI**, **XHTML**, **XSLT**, **CSS**,
-\hologo{ConTeXt}, **HTML**, markdown, **YAML**, Pandoc, Ti$k$Z, Bib\LaTeX,
+\hologo{ConTeXt}, **HTML**, markdown, **YAML**oň, Pandoc, Ti$k$Z, Bib\LaTeX,
 Ly\hologo{LuaTeX}*
 
 * * *
