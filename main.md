@@ -91,7 +91,7 @@ zamýšlím nad dalším směřováním \TeX u a vysokoúrovňových jazyků jak
 # \TeX{} jako strojový kód digitální sazby {#tex}
 
 \TeX{} je nízkoúrovňový programovací jazyk pro digitální sazbu~[@knuth1984texbook].
-Referenční implementací \TeX u je interpretr (tzv. *\TeX ový stroj*) \TeX 90 od
+Referenční implementací \TeX u je interpretr (také *\TeX ový stroj*) \TeX 90 od
 profesora Knutha~[@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eTeX}~%
 [@breitenlohner1998etex], \hologo{pdfTeX}~[@thanh2022pdftex] a \hologo{LuaTeX}~%
 [@luatex2022luatex] rozšiřují \TeX 90 o dodatečné primitivní příkazy, které
@@ -138,10 +138,10 @@ systému:
 ```tex
 $ 1 + 2 = \input|" echo 1 + 2 | bc "\relax $
 ```
-← Toto je mocný nástroj, který nám umožňuje integrovat \TeX ový kód s širším
-ekosystémem programové výbavy mimo instalaci \TeX u.[^6] Toho využívá např.
-\LaTeX ový balíček *Python\TeX{}* [@poore2021pythontex], který umožňuje zadávat
-a spouštět programy v jazyce Python přímo z \TeX ových dokumentů.
+← Rozšířená varianta příkazu `\input` nám umožňuje integrovat \TeX ový kód s
+širším ekosystémem programové výbavy mimo instalaci \TeX u.[^6] Toho využívá
+např. \LaTeX ový balíček *Python\TeX{}* [@poore2021pythontex], který umožňuje
+zadávat a spouštět programy v jazyce Python přímo z \TeX ových dokumentů.
 
  [^6]: Nevýhodou rozšířené varianty příkazu `\input` je vazba na konkrétní
        příkazovou řádku a programovou výbavu, což snižuje přenositelnost
@@ -190,7 +190,7 @@ typové signatury (`:n`).[^8]
        \cs_new:Nn \pozdrav:n { Ahoj,~#1! }
        ```
        ← Při volání příkazu pro nás ale může být snazší použít jako argument
-       jméno proměnné:
+       např. jméno proměnné:
        ``` tex
        \cs_generate_variant:Nn \pozdrav:n { v }
        \tl_new:N   \g_jmeno_tl
@@ -210,12 +210,12 @@ jejich využití v \TeX u.
 > Je překvapivě obtížné přesvědčit o tom uživatele, ale nedostatky \LaTeX u pro
 > koncentraci, psaní a myšlení si v ničem nezadají s nedostatky Wordu. Je to z
 > toho prostého důvodu, že \LaTeX{} dává spisovateli do rukou příliš velkou moc:
-> Vždy existuje další balíček, který můžeme zavést v preambuli, stejně jako
+> Vždy existuje další makrobalík, který můžeme zavést v preambuli, stejně jako
 > vždy existuje další rozbalovací nabídka ve Wordu.
 > ---~@thompson2010pandoc [, v překladu autora]
 
 Formát \LaTeXe{} poskytuje jednoduchý značkovací jazyk pro přípravu dokumentů,
-který je možné rozšiřovat pomocí balíčků:
+který je možné rozšiřovat pomocí makrobalíků:
 
 ``` latex
 \documentclass{book}
@@ -231,11 +231,11 @@ Ahoj, \LaTeX u!
 ```
 
 ← Pokud nejsme spokojeni s automatickým výstupem vysokoúrovňových značek jako
-`\chapter`, značkovací jazyk \LaTeX u nám umožňuje používat nízkoúrovňové
-příkazy \LaTeX u jako `\textbf` a primitivní příkazy \TeX ového stroje jako
-`\vskip`. Toto může být vhodné pro řešení konkrétních typografických
-nedostatků, které nelze řešit systémově. Nadměrné užití nízkoúrovňových příkazů
-narušuje dělbu práce a vede k nejednotnému vzhledu dokumentu.
+`\chapter`, značkovací jazyk \LaTeX u nám umožňuje používat prezentační značky
+\LaTeX u jako `\textbf` a primitivní příkazy \TeX ového stroje jako `\vskip`.
+Toto může být vhodné pro řešení konkrétních typografických nedostatků, které
+nelze řešit systémově. Nadměrné užívání nízkoúrovňových příkazů narušuje dělbu
+práce a vede k nejednotnému vzhledu koncového dokumentu.
 
 Mimo svět \TeX u jsou oblíbené značkovací jazyky založené na metajazyku
 **XML**. Můžeme si navrhnout buďto svůj vlastní **XML** jazyk~%
@@ -246,7 +246,9 @@ nebo **XHTML** (vizte níže):
 <?xml version="1.0" encoding="utf-8"?>
 <html xml:lang="cs" xmlns="http://www.w3.org/1999/xhtml">
     <head>
+%~-
         <title>Ukázkový dokument v XHTML</title>
+%~+
         <meta name="author" content="Vít Novotný" />
     </head>
     <body>
@@ -288,34 +290,84 @@ textu nutí spisovatele použít specializovaný textový editor pro snadný zá
 > ta správná otázka: Jak by měla znít následující věta?
 > ---~@thompson2010pandoc [, v překladu autora]
 
-Odlehčené značkovací jazyky jako markdown~[@gruber2004markdown] a
-**YAML**oň[^9]~[@benkiki2021yaml] minimalizují poměr značek vůči textu pro
+Odlehčené značkovací jazyky jako **YAML**oň[^9]~[@benkiki2021yaml]
+a markdown~[@gruber2004markdown] minimalizují poměr značek vůči textu pro
 snadný zápis a zvýšenou čitelnost:
 
- [^9]: Podle vzoru jabloň
+ [^9]: **YAML**oň podle vzoru jabloň
 
-``` yaml
+``` md
 ---
-title:  Ukázkový dokument v markdownu a YAMLoni
+%~-
+title:  Ukázkový dokument v YAMLoni a markdownu
+%~+
 author: Vít Novotný
 date:   2022-05-14
 lang:   cs
 ---
-```
-``` md
+
 # Kapitola
-Ahoj, *markdowne* a YAMLoni!
+%~-
+Ahoj, YAMLoni a *markdowne*!
+%~+
 ```
 
-← Pro zpracování našeho dokumentu \TeX em můžeme použít např. makrobalík
-Markdown~[@novotny2022markdown] nebo konverzní nástroj
-Pandoc~[@macfarlane2022pandoc].
+← Pro zpracování našeho dokumentu \TeX em můžeme použít např. konverzní nástroj
+Pandoc~[@macfarlane2022pandoc], makrobalík
+`markdown`~[@novotny2022markdowna], nebo oba zároveň~[@drehak2021priama;
+@novotny2022markdownb, sekce 2.3].
+
+Markdown je jednoduchý jazyk, kterému chybí značky pro složitější a méně časné
+prvky jako tabulky, poznámky a citace. Pandoc i `markdown` proto nabízí
+rozšiřující značky[^12] a umožňují uživatelům vytvářet značky
+vlastní~[@macfarlane2022pandoc, sekce Filters] [@novotny2022markdowna, sekce
+2.1.2] a připojovat k prvkům doplňující informace pomocí *atributů*:[^13]
+
+``` md
+Ahoj, rozšiřující značky[^1] a [atributy]{.vysazej-mne-tucne}.
+
+ [^1]: Ahoj, já jsem rozšiřující značka pro poznámky.
+```
+
+← Jazyk markdown původně vznikl jako preprocesor jazyka **HTML** a spisovatel
+v něm proto může využívat také **HTML** značky:[^10]
+
+ [^10]: V `markdown`u je třeba zápis **HTML** značek povolit volbou `html`.
+
+ [^12]: V Pandocu a `markdown`u je třeba zápis tabulek, poznámek a citací
+        povolit volbami `pipe_tables`, `footnotes` a `citations`.
+
+ [^13]: V Pandocu a `markdown`u je třeba zápis atributů povolit volbami
+        `header_attributes`, `fenced_code_attributes`, `inline_code_attributes`
+        a `link_attributes`.
+
+``` html
+Ahoj také <abbr title="hatmatilko">HTML</abbr>.
+```
+
+← Pro sazbu matematiky, další rozšíření repertoáru značek a řešení konkrétních
+typografických nedostatků může spisovatel v markdownu použít i primitivní
+příkazy \TeX ového stroje a příkazy \TeX ových formátů:[^11]
+
+ [^11]: V Pandocu je třeba zápis matematiky a \TeX ových značek povolit volbami
+        `tex_math_dollars` a `raw_attribute`. V `markdown`u je třeba povolit
+        volbu `hybrid`.
+
+``` tex
+%~-
+Ahoj i vám, `\LaTeX u`{=latex} a $\text{matematiko}$.
+%~+
+```
+
+← Nadužívání rozšiřujících značek a atributů snižuje čitelnost vstupních
+dokumentů, ztěžuje jejich další zpracování, narušuje dělbu práce a vede k
+nejednotnému vzhledu koncových dokumentů. Užívejte je proto s mírou.
 
 Různé značkovací jazyky mají různé výhody a může být vhodné je kombinovat.
-Markdown a **YAML** mohou sloužit jako vstupní jazyky pro spisovatele. Pomocí
+Markdown a **YAML**oň mohou sloužit jako vstupní jazyky pro spisovatele. Pomocí
 Pandocu můžeme vstupní dokumenty převést do **XML** mezijazyka pro archivaci a
 další zpracování. Z **XML** mezijazyka získáme dokument v \LaTeX u nebo jiném
-\TeX ovém formátu, který může sloužit jako výstupní jazyk pro sazeče:
+\TeX ovém formátu, který může sloužit jako koncový jazyk pro sazeče.
 
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
 
