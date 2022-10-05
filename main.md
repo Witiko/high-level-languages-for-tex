@@ -5,11 +5,11 @@ author: Vít Novotný
 podpis: Vít Novotný, witiko@mail.muni.cz
 ---
 
-\TeX{} je strojový kód světa digitální sazby, který od spisovatelů a grafických
-návrhářů vyžaduje netriviální programátorské dovednosti a který programátorům
+\TeX{} je strojový kód světa digitální sazby, který od spisovatelů a grafiků
+vyžaduje netriviální programátorské dovednosti a který programátorům
 poskytuje minimum vysokoúrovňových abstrakcí. V článku představuji vybrané
 značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělbu práce
-mezi spisovatelů, vývojáře a grafické návrháře a které usnadňují proces
+mezi spisovatelů, vývojáře a grafiky a které usnadňují proces
 přípravy elektronických dokumentů. Článek je volný přepis mé přednášky na
 valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
 
@@ -369,7 +369,106 @@ Pandocu můžeme vstupní dokumenty převést do **XML** mezijazyka pro archivac
 další zpracování. Z **XML** mezijazyka získáme dokument v \LaTeX u nebo jiném
 \TeX ovém formátu, který může sloužit jako koncový jazyk pro sazeče.
 
-# Stylové jazyky pro grafické návrháře {#stylovejazyky}
+# Stylové jazyky pro grafiky {#stylovejazyky}
+
+V \TeX u nelze využívat vysokoúrovňové deklarativní stylové jazyky jako **CSS**
+a grafici jsou proto odkázáni na programování v \TeX u. V této sekci ve
+stručnosti poreferuji o tom, jaké možnosti usnadnění nám nabízí formáty \LaTeXe
+a \LaTeX3.
+
+Formát \LaTeXe{} poskytuje vysokoúrovňové příkazy pro vytváření pojmenovaných
+stylů stránek (`\newpagestyle`), změny obsahu záhlaví a zápatí (`\markboth`) a
+nastavení rodiny, řezu a velikost písma nezávisle na sobě a nezávisle na
+konkrétním písmu (`\textbf`) [@latex2021fntguide]. \LaTeXe dále poskytuje
+délkové registry pro nastavování rozměrů sazebního zrcadla (`\textheight`) a
+vzhledu některých \LaTeX ových značek (`\itemsep`).  Rozšiřující makrobalíky
+\LaTeX u jako `enumitem`, `geometry` a `fancyhdr` umožňují grafikovi měnit
+další aspekty vzhledu koncového dokumentu bez programování.
+
+Součástí formátu \LaTeX3 je makrobalík `xtemplate`, který sazečovi, grafikovi
+a vývojáři pomáhá společně připravovat stylopisy. Nejprve sazeč zadefinuje
+*typy* prvků dokumentu jako např. sekce:
+
+ <!-- https://tug.org/TUGboat/tb24-2/tb77hellstrom.pdf -->
+ <!-- https://tug.org/TUGboat/tb33-3/tb105niederberger.pdf -->
+ <!-- https://mirrors.nic.cz/tex-archive/macros/latex/contrib/l3packages/xtemplate.pdf -->
+
+``` latex
+\DeclareObjectType { sekce } { 1 }  \% Sekce mají 1 argument: název
+```
+
+← Grafik pro každý typ vytvoří *šablonu*. Šablona zadává vysokoúrovňové
+grafické parametry, kterými se od sebe liší různé úrovně sekcí:
+
+``` latex
+\DeclareTemplateInterface { sekce } { moje-šablona } { 1 }
+  {
+    číslovaná : bool = true,
+    mezera-nad : skip,
+    mezera-pod : skip,
+    úroveň: int,
+    zarovnání : choice { doleva, doprostřed, doprava } = doleva,
+  }
+```
+
+← Následně grafik navrhne *instance* šablony pro úrovně úrovně
+sekcí jako kapitoly:
+
+``` latex
+\DeclareInstance { sekce } { kapitola } { moje-šablona }
+  {
+    mezera-nad = 10pt,
+    mezera-pod = 12pt,
+    úroveň = 1,
+  }
+```
+
+← Vývojář implementuje parametry šablony pomocí vysokoúrovňového jazyka expl3,
+prezentačních značek \LaTeX u a primitivních příkazů \TeX ového stroje:
+
+``` latex
+\intarray_new:Nn \g_cisla_sekci_intarray { 3 }
+\int_new:Nn \l_cislovana_bool
+\int_new:Nn \l_cislo_sekce_int
+\skip_new:N \l_mezera_nad_skip
+\skip_new:N \l_mezera_pod_skip
+\tl_new:N \l_zarovnani_tl
+
+\DeclareTemplateCode { sekce } { moje-šablona } { #1 }
+  {
+    číslovaná = \l_cislovana_bool ,
+    mezera-nad = \l_mezera_nad_skip ,
+    mezera-pod = \l_mezera_pod_skip ,
+    úroveň = \l_uroven_int ,
+    zarovnání = {
+      doleva = \cs_set_eq:NN \l_zarovnani_tl \raggedleft ,
+      doprava = \cs_set_eq:NN \l_zarovnani_tl \raggedright ,
+      doprostřed = \cs_set_eq:NN \l_zarovnani_tl \ćentering ,
+    },
+  }
+  {
+    \AssignTemplateKeys
+    \par \skip_vertical:N \l_mezera_nad_skip
+    \group_begin:
+      \l_zarovnani_tl \Large \bfseries
+      \bool_if:NT \l_cislovana_bool
+        { \exp_args:NNx \int_set:Nn \l_cislo_sekce_int
+            { \intarray_item:NV \g_cisla_sekci_intarray
+                \l_uroven_int }
+          \int_use:N \l_cislo_sekce_int .~
+          \intarray_gset:NVn \g_cisla_sekci_intarray
+            \l_uroven_int { \l_cislo_sekce_int + 1 }
+        }
+      #1
+      \par \skip_vertical:N \l_mezera_pod_skip
+    \group_end:
+  }
+
+\cs_generate_variant:Nn \intarray_item:Nn { NV }
+\cs_generate_variant:Nn \intarray_gset:Nnn { NVn }
+```
+
+← Spisovatel pak přímo nebo přes značku vysokoúrovňového <!-- ... -->
 
 <!-- https://www.texdev.net/2009/01/19/latex3-key-points/ -->
 <!-- https://www.ctan.org/pkg/xtemplate -->
