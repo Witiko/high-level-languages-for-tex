@@ -311,11 +311,11 @@ Ahoj, *markdowne* a YAMLoni!
 Markdown~[@novotny2022markdown] nebo konverzní nástroj
 Pandoc~[@macfarlane2022pandoc].
 
-Různé značkovací jazyky mají různé výhody a může být výhodné je kombinovat.
-Markdown a **YAML** mohou být vhodné vstupní jazyky pro spisovatele. Pomocí
-Pandocu můžeme dokumenty převést do **XML** mezijazyka pro archivaci a další
-zpracování. Z **XML** mezijazyka získáme dokument v \LaTeX u, který může být
-vhodným výstupním jazykem pro sazeče.
+Různé značkovací jazyky mají různé výhody a může být vhodné je kombinovat.
+Markdown a **YAML** mohou sloužit jako vstupní jazyky pro spisovatele. Pomocí
+Pandocu můžeme vstupní dokumenty převést do **XML** mezijazyka pro archivaci a
+další zpracování. Z **XML** mezijazyka získáme dokument v \LaTeX u nebo jiném
+\TeX ovém formátu, který může sloužit jako výstupní jazyk pro sazeče:
 
 # Stylové jazyky pro grafické návrháře {#stylove-jazyky}
 
