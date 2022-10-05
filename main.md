@@ -88,6 +88,8 @@ stylových a dalších doménově specifických vysokoúrovňových jazyků pro 
 V sekci~<#zaver> shrnuji poznatky z článku. V sekci~<#vyhleddobudoucnosti> se
 zamýšlím nad dalším směřováním \TeX u a vysokoúrovňových jazyků jako takových.
 
+↑
+
 # \TeX{} jako strojový kód digitální sazby {#tex}
 
 \TeX{} je nízkoúrovňový programovací jazyk pro digitální sazbu~[@knuth1984texbook].
@@ -100,11 +102,16 @@ zvyšují vývojářský komfort.  *Makrobalíky* jako plain~[@knuth2021plain],
 primitiv \TeX ových strojů vysokoúrovňové značkovací a programovací jazyky pro
 spisovatele a vývojáře.
 
-*Formáty* odpovídají kombinaci konkrétního formátu a makrobalíku, např.
-$\text{\hologo{LuaTeX}} + \text{\LaTeX} = \text{Lua\LaTeX}$ a
+*Formáty* odpovídají kombinaci stroje a makrobalíku, např.
+$\text{\hologo{LuaTeX}} + \text{\LaTeX} = \text{Lua\LaTeX}$[^14] a
 $\text{\hologo{LuaTeX}} + \text{\hologo{ConTeXt}} = \text{\hologo{ConTeXt}
 MkIV}$. S formáty pracuje sazeč při přípravě dokumentu z příkazové řádky
 operačního systému pomocí příkazů jako `lualatex` a `context`.
+
+ [^14]: Pokud neni stroj významný, hovoříme o formátech \*\LaTeX{} souhrnně
+        jako o formátu \LaTeX.
+
+↑
 
 # Programovací jazyky pro vývojáře {#programovacijazyky}
 
@@ -373,7 +380,7 @@ další zpracování. Z **XML** mezijazyka získáme dokument v \LaTeX u nebo ji
 
 V \TeX u nelze využívat vysokoúrovňové deklarativní stylové jazyky jako **CSS**
 a grafici jsou proto odkázáni na programování v \TeX u. V této sekci stručně
-referuji o tom, jaké možnosti usnadnění nabízí grafikům formáty \LaTeXe a
+referuji o tom, jaké možnosti usnadnění nabízí grafikům formáty \LaTeXe{} a
 \LaTeX3.
 
 Formát \LaTeXe{} poskytuje vysokoúrovňové příkazy pro vytváření pojmenovaných
@@ -508,6 +515,23 @@ bibliografické záznamy lze validovat a převést do **XML** jazyka Bib\LaTeX M
 pro další zpracování [@novotny2018priprava, sekce 3.4]. Bib\LaTeX{} lze
 rozšiřovat pomocí makrobalíků s citačními styly [@luptak2016sadzba]. Zamrzí
 absence podpory stylopisů ve standardním deklarativním stylovém jazyce **CSL**.
+
+Makrobalík LyLua\TeX~[@peron2019lyluatex] poskytuje jazyk pro notový zápis:
+
+``` tex
+\score {
+    \relative c' {
+        \time 4/4
+        \clef treble
+        c4 d8 e f8 g a b | c4 b8 a g8 f e d |
+        c8 g' e g c,8 g' e g | c,4 e c r \bar "|."
+    }
+}
+```
+
+![lilypond](lilypond)
+
+← LyLua\TeX{} potřebuje \TeX ový formát Lua\LaTeX{} a instalovaný program LilyPond.
 
 # Závěr {#zaver}
 
