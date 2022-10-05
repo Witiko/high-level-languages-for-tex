@@ -82,10 +82,10 @@ a programové výbavy namísto nízkoúrovňového \TeX u.
  /un-lion-de-paris.pdf "Un Lion de Paris (Grandville, 1840--1842)"
 
 V sekci~<#tex> shrnuji pojmy související s \TeX em, jako jsou stroje,
-makrobalíky a formáty. V sekcích <#programovaci-jazyky> až
-<#domenove-specificke-jazyky> nabízím přehled programovacích, značkovacích,
+makrobalíky a formáty. V sekcích <#programovacijazyky> až
+<#domenovespecifickejazyky> nabízím přehled programovacích, značkovacích,
 stylových a dalších doménově specifických vysokoúrovňových jazyků pro \TeX.
-V sekci~<#zaver> shrnuji poznatky z článku. V sekci~<#vyhled-do-budoucnosti> se
+V sekci~<#zaver> shrnuji poznatky z článku. V sekci~<#vyhleddobudoucnosti> se
 zamýšlím nad dalším směřováním \TeX u a vysokoúrovňových jazyků jako takových.
 
 # \TeX{} jako strojový kód digitální sazby {#tex}
@@ -106,7 +106,7 @@ $\text{\hologo{LuaTeX}} + \text{\hologo{ConTeXt}} = \text{\hologo{ConTeXt}
 MkIV}$. S formáty pracuje sazeč při přípravě dokumentu z příkazové řádky
 operačního systému pomocí příkazů jako `lualatex` a `context`.
 
-# Programovací jazyky pro vývojáře {#programovaci-jazyky}
+# Programovací jazyky pro vývojáře {#programovacijazyky}
 
 V této sekci se podíváme na to, jaké možnosti nabízí moderní \TeX ové stroje
 a makrobalíky vývojářům.
@@ -202,7 +202,7 @@ typové signatury (`:n`).[^8]
        ← Díky typovým signaturám může expl3 automaticky přetypovat argumenty,
        což zvyšuje komfort.
 
-# Značkovací jazyky pro spisovatele {#znackovaci-jazyky}
+# Značkovací jazyky pro spisovatele {#znackovacijazyky}
 
 V této sekci se podíváme na některé existující značkovací jazyky a možnosti
 jejich využití v \TeX u.
@@ -369,7 +369,7 @@ Pandocu můžeme vstupní dokumenty převést do **XML** mezijazyka pro archivac
 další zpracování. Z **XML** mezijazyka získáme dokument v \LaTeX u nebo jiném
 \TeX ovém formátu, který může sloužit jako koncový jazyk pro sazeče.
 
-# Stylové jazyky pro grafické návrháře {#stylove-jazyky}
+# Stylové jazyky pro grafické návrháře {#stylovejazyky}
 
 <!-- https://www.texdev.net/2009/01/19/latex3-key-points/ -->
 <!-- https://www.ctan.org/pkg/xtemplate -->
@@ -379,7 +379,7 @@ další zpracování. Z **XML** mezijazyka získáme dokument v \LaTeX u nebo ji
 <!-- https://www.latex-project.org/publications/2011-FMi-TUG-LaTeX3-architecture-slides.pdf -->
 <!-- https://tug.org/TUGboat/tb32-3/tb102abstracts.pdf -->
 
-# Doménově specifické jazyky pro experty {#domenove-specificke-jazyky}
+# Doménově specifické jazyky pro experty {#domenovespecifickejazyky}
 
 <!-- BibTeXový záznam tohoto článku -->
 
@@ -392,7 +392,7 @@ značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělb
 mezi spisovatele, vývojáře a grafické návrháře a které usnadňují proces
 přípravy elektronických dokumentů.
 
-# Výhled do budoucnosti {#vyhled-do-budoucnosti}
+# Výhled do budoucnosti {#vyhleddobudoucnosti}
 
 <!-- Absence deklarativních stylových jazyků (CSS, CSL) je Achillova pata TeXu? -->
 
