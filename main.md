@@ -231,7 +231,7 @@ Ahoj, \LaTeX u!
 ```
 
 ← Pokud nejsme spokojeni s automatickým výstupem vysokoúrovňových značek jako
-`\chapter`, značkovací jazyk \LaTeX u nám umožňuje používat prezentační značky
+`\chapter`, značkovací jazyk \LaTeX u nám umožňuje používat stylovací příkazy
 \LaTeX u jako `\textbf` a primitivní příkazy \TeX ového stroje jako `\vskip`.
 Toto může být vhodné pro řešení konkrétních typografických nedostatků, které
 nelze řešit systémově. Nadměrné užívání nízkoúrovňových příkazů narušuje dělbu
@@ -372,9 +372,9 @@ další zpracování. Z **XML** mezijazyka získáme dokument v \LaTeX u nebo ji
 # Stylové jazyky pro grafiky {#stylovejazyky}
 
 V \TeX u nelze využívat vysokoúrovňové deklarativní stylové jazyky jako **CSS**
-a grafici jsou proto odkázáni na programování v \TeX u. V této sekci ve
-stručnosti poreferuji o tom, jaké možnosti usnadnění nám nabízí formáty \LaTeXe
-a \LaTeX3.
+a grafici jsou proto odkázáni na programování v \TeX u. V této sekci stručně
+referuji o tom, jaké možnosti usnadnění nabízí grafikům formáty \LaTeXe a
+\LaTeX3.
 
 Formát \LaTeXe{} poskytuje vysokoúrovňové příkazy pro vytváření pojmenovaných
 stylů stránek (`\newpagestyle`), změny obsahu záhlaví a zápatí (`\markboth`) a
@@ -385,15 +385,14 @@ vzhledu některých \LaTeX ových značek (`\itemsep`).  Rozšiřující makroba
 \LaTeX u jako `enumitem`, `geometry` a `fancyhdr` umožňují grafikovi měnit
 další aspekty vzhledu koncového dokumentu bez programování.
 
-Součástí formátu \LaTeX3 je makrobalík `xtemplate`, který sazečovi, grafikovi
+Součástí formátu \LaTeX3 je makrobalík `xtemplate` [@latex2022xtemplate]
+[@hellstrom2003some] [@niederberger2012xtemplate], který sazečovi, grafikovi
 a vývojáři pomáhá společně připravovat stylopisy. Nejprve sazeč zadefinuje
 *typy* prvků dokumentu jako např. sekce:
 
- <!-- https://tug.org/TUGboat/tb24-2/tb77hellstrom.pdf -->
- <!-- https://tug.org/TUGboat/tb33-3/tb105niederberger.pdf -->
- <!-- https://mirrors.nic.cz/tex-archive/macros/latex/contrib/l3packages/xtemplate.pdf -->
-
 ``` latex
+\usepackage{xtemplate}
+\ExplSyntaxOn
 \DeclareObjectType { sekce } { 1 }  \% Sekce mají 1 argument: název
 ```
 
@@ -403,80 +402,68 @@ grafické parametry, kterými se od sebe liší různé úrovně sekcí:
 ``` latex
 \DeclareTemplateInterface { sekce } { moje-šablona } { 1 }
   {
-    číslovaná : bool = true,
     mezera-nad : skip,
     mezera-pod : skip,
-    úroveň: int,
+    písmo : tokenlist,
     zarovnání : choice { doleva, doprostřed, doprava } = doleva,
   }
 ```
 
-← Následně grafik navrhne *instance* šablony pro úrovně úrovně
-sekcí jako kapitoly:
+← Vývojář implementuje parametry šablony pomocí vysokoúrovňového jazyka expl3,
+stylovacích příkazů \LaTeX u a primitivních příkazů \TeX ového stroje:
+
+``` latex
+\skip_new:N \l_mezera_nad_skip
+\skip_new:N \l_mezera_pod_skip
+\tl_new:N \l_pismo_tl
+\tl_new:N \l_zarovnani_tl
+\DeclareTemplateCode { sekce } { moje-šablona } { 1 }
+  { \% Hodnoty parametrů ukládáme do lokálních proměnných
+    mezera-nad = \l_mezera_nad_skip ,
+    mezera-pod = \l_mezera_pod_skip ,
+    písmo = \l_pismo_tl ,
+    zarovnání = {
+      doleva = \cs_set_eq:NN \l_zarovnani_tl \raggedright ,
+      doprava = \cs_set_eq:NN \l_zarovnani_tl \raggedleft ,
+      doprostřed = \cs_set_eq:NN \l_zarovnani_tl \centering ,
+    },
+  }
+  { \% Při spuštění šablony vysázíme nadpis sekce
+    \AssignTemplateKeys
+    \par
+    \skip_vertical:N \l_mezera_nad_skip
+    \group_begin:
+      \l_zarovnani_tl
+      \l_pismo_tl
+      #1
+      \par
+      \skip_vertical:N \l_mezera_pod_skip
+    \group_end:
+  }
+```
+
+← Grafik navrhne *instance* šablony s konkrétními hodnotami parametrů pro různé
+úrovně sekcí jako kapitoly:
 
 ``` latex
 \DeclareInstance { sekce } { kapitola } { moje-šablona }
   {
     mezera-nad = 10pt,
     mezera-pod = 12pt,
-    úroveň = 1,
+    písmo = { \Large \bfseries } ,
   }
+\ExplSyntaxOff
 ```
 
-← Vývojář implementuje parametry šablony pomocí vysokoúrovňového jazyka expl3,
-prezentačních značek \LaTeX u a primitivních příkazů \TeX ového stroje:
+← Když pak spisovatel v dokumentu zadá nadpis sekce, spustí se
+příslušná instance:
 
 ``` latex
-\intarray_new:Nn \g_cisla_sekci_intarray { 3 }
-\int_new:Nn \l_cislovana_bool
-\int_new:Nn \l_cislo_sekce_int
-\skip_new:N \l_mezera_nad_skip
-\skip_new:N \l_mezera_pod_skip
-\tl_new:N \l_zarovnani_tl
-
-\DeclareTemplateCode { sekce } { moje-šablona } { #1 }
-  {
-    číslovaná = \l_cislovana_bool ,
-    mezera-nad = \l_mezera_nad_skip ,
-    mezera-pod = \l_mezera_pod_skip ,
-    úroveň = \l_uroven_int ,
-    zarovnání = {
-      doleva = \cs_set_eq:NN \l_zarovnani_tl \raggedleft ,
-      doprava = \cs_set_eq:NN \l_zarovnani_tl \raggedright ,
-      doprostřed = \cs_set_eq:NN \l_zarovnani_tl \ćentering ,
-    },
-  }
-  {
-    \AssignTemplateKeys
-    \par \skip_vertical:N \l_mezera_nad_skip
-    \group_begin:
-      \l_zarovnani_tl \Large \bfseries
-      \bool_if:NT \l_cislovana_bool
-        { \exp_args:NNx \int_set:Nn \l_cislo_sekce_int
-            { \intarray_item:NV \g_cisla_sekci_intarray
-                \l_uroven_int }
-          \int_use:N \l_cislo_sekce_int .~
-          \intarray_gset:NVn \g_cisla_sekci_intarray
-            \l_uroven_int { \l_cislo_sekce_int + 1 }
-        }
-      #1
-      \par \skip_vertical:N \l_mezera_pod_skip
-    \group_end:
-  }
-
-\cs_generate_variant:Nn \intarray_item:Nn { NV }
-\cs_generate_variant:Nn \intarray_gset:Nnn { NVn }
+\UseInstance{sekce}{kapitola}{Název mojí kapitoly}
 ```
 
-← Spisovatel pak přímo nebo přes značku vysokoúrovňového <!-- ... -->
-
-<!-- https://www.texdev.net/2009/01/19/latex3-key-points/ -->
-<!-- https://www.ctan.org/pkg/xtemplate -->
-
-<!-- https://tex.stackexchange.com/a/118015/70941 -->
-<!-- http://zeeba.tv/latex3-architecture-and-current-work-in-progress/ -->
-<!-- https://www.latex-project.org/publications/2011-FMi-TUG-LaTeX3-architecture-slides.pdf -->
-<!-- https://tug.org/TUGboat/tb32-3/tb102abstracts.pdf -->
+← Při použití balíku `xtemplate` může být grafik součástí procesu přípravy
+dokumentu a průběžně upravovat grafický návrh instancí bez programování.
 
 # Doménově specifické jazyky pro experty {#domenovespecifickejazyky}
 
@@ -494,6 +481,14 @@ přípravy elektronických dokumentů.
 # Výhled do budoucnosti {#vyhleddobudoucnosti}
 
 <!-- Absence deklarativních stylových jazyků (CSS, CSL) je Achillova pata TeXu? -->
+
+<!-- https://www.texdev.net/2009/01/19/latex3-key-points/ -->
+<!-- https://www.ctan.org/pkg/xtemplate -->
+
+<!-- https://tex.stackexchange.com/a/118015/70941 -->
+<!-- http://zeeba.tv/latex3-architecture-and-current-work-in-progress/ -->
+<!-- https://www.latex-project.org/publications/2011-FMi-TUG-LaTeX3-architecture-slides.pdf -->
+<!-- https://tug.org/TUGboat/tb32-3/tb102abstracts.pdf -->
 
 Veškeré jazyky, které jsme si představili v článku, jsou uměle navržené tak,
 aby byly syntakticky jednoznačné a snadno strojově čitelné. Tím se zcela liší
