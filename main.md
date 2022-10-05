@@ -79,7 +79,7 @@ a programové výbavy namísto nízkoúrovňového \TeX u.
        při větším množství značek typicky místo interpunkce používají upovídaná
        \TeX ová makra.
 
- /un-lion-de-paris.pdf "Un Lion de Paris (Grandville, 1840--1842)"
+ ![un-lion-de-paris](un-lion-de-paris "Un Lion de Paris (Grandville, 1840--1842)")
 
 V sekci~<#tex> shrnuji pojmy související s \TeX em, jako jsou stroje,
 makrobalíky a formáty. V sekcích <#programovacijazyky> až
@@ -231,11 +231,11 @@ Ahoj, \LaTeX u!
 ```
 
 ← Pokud nejsme spokojeni s automatickým výstupem vysokoúrovňových značek jako
-`\chapter`, značkovací jazyk \LaTeX u nám umožňuje používat stylovací příkazy
-\LaTeX u jako `\textbf` a primitivní příkazy \TeX ového stroje jako `\vskip`.
-Toto může být vhodné pro řešení konkrétních typografických nedostatků, které
-nelze řešit systémově. Nadměrné užívání nízkoúrovňových příkazů narušuje dělbu
-práce a vede k nejednotnému vzhledu koncového dokumentu.
+`\chapter`, můžeme místo nich použít stylovací příkazy \LaTeX u jako `\textbf`
+a primitivní příkazy \TeX ového stroje jako `\vskip`. Toto může být vhodné pro
+řešení konkrétních typografických nedostatků, které nelze řešit systémově.
+Nadměrné užívání nízkoúrovňových příkazů narušuje dělbu práce a vede k
+nejednotnému vzhledu koncového dokumentu.
 
 Mimo svět \TeX u jsou oblíbené značkovací jazyky založené na metajazyku
 **XML**. Můžeme si navrhnout buďto svůj vlastní **XML** jazyk~%
@@ -430,14 +430,12 @@ stylovacích příkazů \LaTeX u a primitivních příkazů \TeX ového stroje:
   }
   { \% Při spuštění šablony vysázíme nadpis sekce
     \AssignTemplateKeys
-    \par
-    \skip_vertical:N \l_mezera_nad_skip
+    \par \skip_vertical:N \l_mezera_nad_skip
     \group_begin:
       \l_zarovnani_tl
       \l_pismo_tl
       #1
-      \par
-      \skip_vertical:N \l_mezera_pod_skip
+      \par \skip_vertical:N \l_mezera_pod_skip
     \group_end:
   }
 ```
@@ -463,11 +461,32 @@ příslušná instance:
 ```
 
 ← Při použití balíku `xtemplate` může být grafik součástí procesu přípravy
-dokumentu a průběžně upravovat grafický návrh instancí bez programování.
+dokumentu a průběžně upravovat grafický návrh instancí, aniž by musel
+programovat.
 
 # Doménově specifické jazyky pro experty {#domenovespecifickejazyky}
 
-<!-- BibTeXový záznam tohoto článku -->
+Kromě programovacích, značkovacích a stylových jazyků existuje mnoho dalších
+jazyků pro doménové experty jako knihovníci, ilustrátoři a hudebníci. V této
+sekci uvádím přehledový výčet několika takových jazyků.
+
+Makrobalík Ti$k$Z [@tantau2021pgf] poskytuje jazyk pro přípravu ilustrací,
+který je nezávislý na použitém \TeX ovém formátu (zde ConTeXt MkIV) a který je
+možné rozšiřovat pomocí makrobalíků (zde `tikzducks` [@carter2020tikz]):
+
+``` tex
+\usemodule[tikzducks]
+\usecolors[xwi]
+\starttext
+\starttikzpicture
+\duck[tophat, bowtie]
+\duck[scale=0.3, xshift=60pt,
+                 yshift=40pt]
+\stoptikzpicture
+\stoptext
+```
+
+ /figures/tikz-ducks.tex
 
 # Závěr {#zaver}
 
