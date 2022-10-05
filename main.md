@@ -15,9 +15,9 @@ valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
 
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
 \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX, \LaTeXe, \LaTeX3,
-Python\TeX, expl3, **XML**, DocBook, **TEI**, **XHTML**, **XSLT**, **CSS**,
+Python\TeX, expl3, **XML**, DocBook, **TEI**, **XHTML**, **XSLT**, **CSS**, **CSL**,
 \hologo{ConTeXt}, **HTML**, markdown, **YAML**oň, Pandoc, Ti$k$Z, Bib\LaTeX,
-Ly\hologo{LuaTeX}*
+Bib\LaTeX ML, Ly\hologo{LuaTeX}*
 
 * * *
 
@@ -467,12 +467,10 @@ programovat.
 # Doménově specifické jazyky pro experty {#domenovespecifickejazyky}
 
 Kromě programovacích, značkovacích a stylových jazyků existuje mnoho dalších
-jazyků pro doménové experty jako knihovníci, ilustrátoři a hudebníci. V této
-sekci uvádím přehledový výčet několika takových jazyků.
+vysokoúrovňových jazyků pro doménové experty jako knihovníci, ilustrátoři a
+hudebníci. V této sekci uvádím přehledový výčet několika takových jazyků.
 
-Makrobalík Ti$k$Z [@tantau2021pgf] poskytuje jazyk pro přípravu ilustrací,
-který je nezávislý na použitém \TeX ovém formátu (zde ConTeXt MkIV) a který je
-možné rozšiřovat pomocí makrobalíků (zde `tikzducks` [@carter2020tikz]):
+Makrobalík Ti$k$Z~[@tantau2021pgf] poskytuje jazyk pro přípravu ilustrací:
 
 ``` tex
 \usemodule[tikzducks]
@@ -487,6 +485,29 @@ možné rozšiřovat pomocí makrobalíků (zde `tikzducks` [@carter2020tikz]):
 ```
 
  /figures/tikz-ducks.tex
+
+← Jazyk Ti$k$Zu je nezávislý na použitém \TeX ovém formátu (zde ConTeXt MkIV) a
+lze ho rozšiřovat pomocí makrobalíků (zde `tikzducks`~[@carter2020tikz]).
+
+Makrobalík Bib\LaTeX~[@lehnman2022biblatex] poskytuje jazyk pro přípravu
+bibliografie:
+
+``` bib
+@online{lehnman2022biblatex,
+    title = {The Bib\LaTeX{} Package},
+    subtitle = {Programmable Bibliographies and Citations},
+    author = {Philip Kime and Moritz Wemheuer and Philipp Lehman},
+    date = {2022-07-12},
+    url = {https://ctan.org/pkg/biblatex},
+    urldate = {2022-10-06},
+}
+```
+
+← Jazyk Bib\LaTeX u je přesně definovaný~[@lehnman2022biblatex, sekce 2] a
+bibliografické záznamy lze validovat a převést do **XML** jazyka Bib\LaTeX ML
+pro další zpracování [@novotny2018priprava, sekce 3.4]. Bib\LaTeX{} lze
+rozšiřovat pomocí makrobalíků s citačními styly [@luptak2016sadzba]. Zamrzí
+absence podpory stylopisů ve standardním deklarativním stylovém jazyce **CSL**.
 
 # Závěr {#zaver}
 
@@ -551,7 +572,7 @@ transcribes my invited talk at the general assembly of \CSTUG{} on May 14,
 *high-level languages, programming languages, markup languages, style-sheet
 languages, \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX,
 \LaTeXe, \LaTeX3, Python\TeX, expl3, **XML**, DocBook, **TEI**, **XHTML**,
-**XSLT**, **CSS**, \hologo{ConTeXt}, **HTML**, markdown, **YAML**, Pandoc,
-Ti$k$Z, Bib\LaTeX, Ly\hologo{LuaTeX}*
+**XSLT**, **CSS**, **CSL**, \hologo{ConTeXt}, **HTML**, markdown, **YAML**, Pandoc,
+Ti$k$Z, Bib\LaTeX, Bib\LaTeX ML, Ly\hologo{LuaTeX}*
 
 * * *
