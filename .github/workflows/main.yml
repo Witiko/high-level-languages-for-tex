@@ -22,7 +22,12 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: main
-          path: main.pdf
+          path: |
+            figures/
+            markdownthemewitiko_csbulletin.sty
+            main.bib
+            main.tex
+            main.pdf
       - name: Create a prerelease
         if: github.ref == 'refs/heads/main'
         uses: marvinpinto/action-automatic-releases@latest
@@ -31,4 +36,5 @@ jobs:
           automatic_release_tag: latest
           prerelease: true
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          files: main.pdf
+          files: |
+            main.pdf

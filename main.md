@@ -198,7 +198,9 @@ oddělení názvu příkazu (`\int_eval`) od jeho typové signatury (`:n`).[^8]
        ← Při volání příkazu pro nás ale může být snazší použít jako argument
        např. jméno proměnné:
        ``` tex
+       %~-
        \cs_generate_variant:Nn \pozdrav:n { v }
+       %~+
        \tl_new:N   \g_jmeno_tl
        \tl_set:Nn  \g_jmeno_tl { světe }
        %~-
@@ -214,8 +216,8 @@ V této sekci se podíváme na některé existující značkovací jazyky a mož
 jejich využití v \TeX u.
 
 > Je překvapivě obtížné přesvědčit o tom uživatele, ale nedostatky \LaTeX u pro
-> koncentraci, psaní a myšlení si v ničem nezadají s nedostatky Wordu. Je to z
-> toho prostého důvodu, že \LaTeX{} dává spisovateli do rukou příliš velkou moc:
+> koncentraci, psaní a myšlení si v ničem nezadají s nedostatky Wordu. Je to
+> z toho prostého důvodu, že \LaTeX{} dává spisovateli do rukou příliš velkou moc:
 > Vždy existuje další makrobalík, který můžeme zavést v preambuli, stejně jako
 > vždy existuje další rozbalovací nabídka ve Wordu.
 > ---~@thompson2010pandoc [, v překladu autora]
@@ -330,7 +332,9 @@ vlastní~[@macfarlane2022pandoc, sekce Filters] [@novotny2022markdowna, sekce
 2.1.2] a připojovat k prvkům doplňující informace pomocí *atributů*:[^13]
 
 ``` md
+%~-
 Ahoj, rozšiřující značky[^1] a [atributy]{.vysazej-mne-tucne}.
+%~+
 
  [^1]: Ahoj, já jsem rozšiřující značka pro poznámky.
 ```
@@ -522,8 +526,10 @@ Makrobalík LyLua\TeX~[@peron2019lyluatex] poskytuje jazyk pro notový zápis:
     \relative c' {
         \time 4/4
         \clef treble
+        %~-
         c4 d8 e f8 g a b | c4 b8 a g8 f e d |
         c8 g' e g c,8 g' e g | c,4 e c r \bar "|."
+        %~+
     }
 }
 ```
