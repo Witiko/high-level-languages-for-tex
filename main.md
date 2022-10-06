@@ -6,17 +6,17 @@ podpis: Vít Novotný, witiko@mail.muni.cz
 ---
 
 \TeX{} je strojový kód světa digitální sazby, který od spisovatelů a grafiků
-vyžaduje netriviální programátorské dovednosti a který programátorům
+vyžaduje netriviální programátorské dovednosti a programátorům
 poskytuje minimum vysokoúrovňových abstrakcí. V článku představuji vybrané
 značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělbu práce
-mezi spisovatelů, vývojáře a grafiky a které usnadňují proces
+mezi spisovatele, vývojáře a grafiky a usnadňují proces
 přípravy elektronických dokumentů. Článek je volný přepis mé přednášky na
 valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
 
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
 \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX, \LaTeXe, \LaTeX3,
 Python\TeX, expl3, **XML**, DocBook, **TEI**, **XHTML**, **XSLT**, **CSS**, **CSL**,
-\hologo{ConTeXt}, **HTML**, markdown, **YAML**oň, Pandoc, Ti$k$Z, Bib\LaTeX,
+\hologo{ConTeXt}, **HTML**, markdown, **YAML**, Pandoc, Ti$k$Z, Bib\LaTeX,
 Bib\LaTeX ML, Ly\hologo{LuaTeX}*
 
 * * *
@@ -24,34 +24,34 @@ Bib\LaTeX ML, Ly\hologo{LuaTeX}*
 Kreativnímu jedinci je \TeX{} pozvánkou k tomu, aby se na chvíli stal
 spisovatelem, grafikem, ilustrátorem, sazečem a vývojářem v jedné osobě.
 Rozsáhlým dokumentům však prospívá, když obsah, stylopisy a programová výbava
-vznikají do jisté míry nezávisle.[^1] Toto umožňuje dělbu práce mezi doménové
-experty, aniž by neúnosně rostly náklady na vzájemnou koordinaci. Kreativní
-jedinec, který dokáže zastoupit několik rolí, se může v případě potřeby omezit
+vznikají do jisté míry nezávisle.[^1] To umožňuje dělbu práce mezi doménové
+experty, aniž by neúnosně rostly náklady na vzájemnou koordinaci. Kreativec,
+který dokáže zastoupit několik rolí, se může v případě potřeby omezit
 jen na jednu z nich a věnovat jí svou plnou a ničím nerušenou pozornost.
 
- [^1]: Laskavý čtenář může namítnout, že rozdělení dokumentu na nezávislé části
-       je fikce: Jsou obrázky v textu doménou spisovatele, nebo ilustrátora?
-       Může spisovatel měnit písmo a barvu textu či způsob číslování seznamů,
-       nebo jde o úkol grafika? Kde jsou vlastně hranice mezi rolemi grafika,
+ [^1]: Čtenář může namítnout, že rozdělení dokumentu na nezávislé části
+       je fikce: Jsou obrázky v textu doménou spisovatele nebo ilustrátora?
+       Může spisovatel měnit písmo a barvu textu či způsob číslování seznamů
+       nebo jde o úkol grafika? Kde jsou hranice mezi rolemi grafika,
        sazeče a vývojáře?
 
        Tyto námitky jsou na místě především u akcidenčních a nízkonákladových
        dokumentů, jako jsou plakáty, básnické sbírky nebo jídelní a nápojové
-       lístky. U takových dokumentů může být vhodnější zvolit celistvý přístup,
-       kdy jsou role volnější a mezi účastníky procesu přípravy dokumentu
+       lístky. U takových dokumentů může být vhodnější zvolit takový přístup,
+       při kterém jsou role volnější a mezi účastníky procesu přípravy dokumentu
        probíhá soustavná komunikace. Autor článku má zkušenosti převážně s
        přípravou odborných a technických dokumentů, u kterých jsou
        jednotvárnost a kompozicialita úmyslnými prvky stylu. Takové dokumenty
-       lze tedy snadno rozdělit na dílčí části bez újmy na celku.
+       lze snadno rozdělit na dílčí části bez újmy na celku.
 
 \TeX ový dokument můžeme rozdělit na obsah, stylopisy a programovou výbavu
 jednoduše tak, že vytvoříme tři samostatné soubory:
 
-- text dokumentu označkovaný \TeX ovými makry,
-- stylopis s nastavením délkových registrů, písem, výstupní rutiny, apod.,
-- program s definicí značkovacích maker.
+- text dokumentu označkovaný \TeX ovými makry
+- stylopis s nastavením délkových registrů, písem, výstupní rutiny, apod.
+- program s definicí značkovacích maker
 
-← Při následné dělbě práce ale můžeme narazit na to, že doménoví experti nejsou
+← Při dělbě práce ale můžeme narazit na to, že doménoví experti nejsou
 schopni nebo ochotni používat při své práci \TeX, což má několik důvodů:
 
 - Moderní značkovací jazyky jako markdown minimalizují poměr značek vůči textu
@@ -63,12 +63,12 @@ schopni nebo ochotni používat při své práci \TeX, což má několik důvod�
   bohaté základní knihovny vestavěných funkcí, zatímco \TeX{} nabízí pouze
   primitivní datové typy a operace nad nimi.
 
-← Naštěstí existuje mnoho vysokoúrovňových jazyků pro \TeX, na které se výše
+← Nicméně existuje mnoho vysokoúrovňových jazyků pro \TeX, na které se výše
 uvedená omezení nevztahují a které můžeme použít pro přípravu obsahu, stylopisů
 a programové výbavy namísto nízkoúrovňového \TeX u.
 
- [^2]: Pro zlepšení čitelnosti textu označkovaného v \TeX u můžeme značky
-       sestavit z interpunkčních znamének. Pokud se však pro usnadnění zápisu
+ [^2]: Čitelnost textu označkovaného v \TeX u zlepší, pokud značky
+       sestavíme z interpunkčních znamének. Pokud se však pro usnadnění zápisu
        omezíme na znakovou sadu **ASCII**, skončíme s pouhými 32 znaky, z nichž
        10 už je využíváno \TeX em. Při větším množství značek by proto
        jednotlivá interpunkční znaménka odpovídala několika různým značkám.
@@ -81,20 +81,18 @@ a programové výbavy namísto nízkoúrovňového \TeX u.
 
  ![un-lion-de-paris](un-lion-de-paris "Un Lion de Paris (Grandville, 1840--1842)")
 
-V sekci~<#tex> shrnuji pojmy související s \TeX em, jako jsou stroje,
+V sekci~<#tex> shrnuji základní pojmy související s \TeX em, jako jsou stroje,
 makrobalíky a formáty. V sekcích <#programovacijazyky> až
 <#domenovespecifickejazyky> nabízím přehled programovacích, značkovacích,
 stylových a dalších doménově specifických vysokoúrovňových jazyků pro \TeX.
-V sekci~<#zaver> shrnuji poznatky z článku. V sekci~<#vyhleddobudoucnosti> se
+V sekci~<#zaver> shrnuji poznatky z tohoto článku. V sekci~<#vyhleddobudoucnosti> se
 zamýšlím nad dalším směřováním \TeX u a vysokoúrovňových jazyků jako takových.
 
-↑
-
-# \TeX{} jako strojový kód digitální sazby {#tex}
+# Přehled základních pojmů {#tex}
 
 \TeX{} je nízkoúrovňový programovací jazyk pro digitální sazbu~[@knuth1984texbook].
-Referenční implementací \TeX u je interpretr (také *\TeX ový stroj*) \TeX 90 od
-profesora Knutha~[@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eTeX}~%
+Referenční implementací \TeX u je *stroj* \TeX 90 od
+Donalda Knutha~[@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eTeX}~%
 [@breitenlohner1998etex], \hologo{pdfTeX}~[@thanh2022pdftex] a \hologo{LuaTeX}~%
 [@luatex2022luatex] rozšiřují \TeX 90 o dodatečné primitivní příkazy, které
 zvyšují vývojářský komfort.  *Makrobalíky* jako plain~[@knuth2021plain],
@@ -106,17 +104,15 @@ spisovatele a vývojáře.
 $\text{\hologo{LuaTeX}} + \text{\LaTeX} = \text{Lua\LaTeX}$[^14] a
 $\text{\hologo{LuaTeX}} + \text{\hologo{ConTeXt}} = \text{\hologo{ConTeXt}
 MkIV}$. S formáty pracuje sazeč při přípravě dokumentu z příkazové řádky
-operačního systému pomocí příkazů jako `lualatex` a `context`.
+pomocí příkazů jako `lualatex` a `context`.
 
  [^14]: Pokud neni stroj významný, hovoříme o formátech \*\LaTeX{} souhrnně
         jako o formátu \LaTeX.
 
-↑
-
 # Programovací jazyky pro vývojáře {#programovacijazyky}
 
-V této sekci se podíváme na to, jaké možnosti nabízí moderní \TeX ové stroje
-a makrobalíky vývojářům.
+V této sekci popisuji, jaké možnosti nabízí moderní \TeX ové stroje a
+makrobalíky vývojářům. Veškeré ukázky v této sekci vypíší text $1 + 2 = 3$.
 
 Stroj \hologo{eTeX} a jeho následovníci jako \hologo{pdfTeX} a \hologo{LuaTeX}
 nabízí primitivní příkaz `\numexpr`, který vyhodnocuje celočíselné aritmetické
@@ -124,8 +120,11 @@ výrazy:
 ``` tex
 $ 1 + 2 = \numexpr 1 + 2 \relax $
 ```
-← Příkaz `\numexpr` zvyšuje vývojářský komfort oproti ruční práci s registry.
-Pro další primitivní typy nabízí \hologo{eTeX} také příkazy `\dimexpr`,
+← Příkaz `\numexpr` zvyšuje komfort oproti primitivním příkazům \TeX u 90:
+``` tex
+$ 1 + 2 = \newcount\x \x=1 \advance\x by 2 \the\x $
+```
+← Pro další primitivní typy nabízí \hologo{eTeX} příkazy `\dimexpr`,
 `\glueexpr` a `\muglueexpr`.
 
 Stroje \hologo{LuaTeX} a LuaMeta\TeX~[@luatex2022luametatex] nabízí primitivní
@@ -136,7 +135,7 @@ $ 1 + 2 = \directlua { tex.print(1 + 2) } $
 ← Kromě základní knihovny jazyka Lua mohou vývojáři interagovat s \TeX ovým
 strojem a instalací \TeX u [@luatex2022luatex, kapitoly 5--10;
 @luatex2022luametatex, kapitoly 4--10] a využívat rozšiřující softwarové
-knihovny pro práci se soubory a složité zpracování textu
+knihovny pro práci se soubory a zpracování textu
 [@luatex2022luatex, sekce 4.3].
 
 Stroje \hologo{pdfTeX} a \hologo{LuaTeX} rozšiřují primitivní příkaz `\input` o
@@ -145,7 +144,7 @@ systému:
 ```tex
 $ 1 + 2 = \input|" echo 1 + 2 | bc "\relax $
 ```
-← Rozšířená varianta příkazu `\input` nám umožňuje integrovat \TeX ový kód s
+← Rozšířená varianta příkazu `\input` umožňuje integrovat \TeX ový kód s
 širším ekosystémem programové výbavy mimo instalaci \TeX u.[^6] Toho využívá
 např. \LaTeX ový balíček *Python\TeX{}* [@poore2021pythontex], který umožňuje
 zadávat a spouštět programy v jazyce Python přímo z \TeX ových dokumentů.
@@ -168,7 +167,7 @@ vysokoúrovňový funkcionální programovací jazyk expl3 [@latex2022style]
 $ 1 + 2 = \int_eval:n { 1 + 2 } $
 \ExplSyntaxOff
 ```
-← Jazyk expl3 nabízí vysokoúrovňové datové typy pro obecné programování
+← Expl3 nabízí vysokoúrovňové datové typy pro obecné programování
 (seznamy a hašové tabulky) a typografické programování (rakve[^7] a barvy) a
 bohatou základní knihovnu funkcí pro řízení toku programu a \TeX ové expanze,
 celočíselnou i reálnou aritmetiku a zpracování \TeX ových tokenů a unicodového
@@ -183,11 +182,12 @@ pdf\TeX; funguje ale i s novějšími stroji, jako jsou \hologo{XeTeX},
 
 Vývojáře zvyklé na kategorie znaků v konvenčních formátech jako plain \TeX,
 \LaTeX{} a \hologo{ConTeXt} mohou u explu překvapit podtržítka a dvojtečky s
-kategorií písmene (11) a bílé znaky (␣, ↵) s kategorií ignorovaného znaku (9).
+kategorií písmene a bílé znaky (␣, ↵) s kategorií ignorovaného znaku.
 Studie však ukazují, že oddělování slov v identifikátorech pomocí\\\_podtržítek
 je čitelnější než oddělování slov pomocíKapitálek [@sharif2010eye], mezery jsou
 častým zdrojem chyb při programování v \TeX u a dvojtečky v explu slouží pro
 oddělení názvu příkazu (`\int_eval`) od jeho typové signatury (`:n`).[^8]
+Kategorie znaků v explu jsou tedy účelné.
 
  [^8]: Typové signatury nám umožňují definovat příkazy s jiným typem argumentu,
        než s jakým příkazy voláme. Můžeme si např. zadefinovat příkaz
