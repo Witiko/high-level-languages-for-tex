@@ -186,9 +186,8 @@ Vývojáře zvyklé na kategorie znaků v konvenčních formátech jako plain \T
 kategorií písmene (11) a bílé znaky (␣, ↵) s kategorií ignorovaného znaku (9).
 Studie však ukazují, že oddělování slov v identifikátorech pomocí\\\_podtržítek
 je čitelnější než oddělování slov pomocíKapitálek [@sharif2010eye], mezery jsou
-častým zdrojem chyb při programování v \TeX u [@olsak2001texbook, sekce 1.3] a
-dvojtečky v explu slouží pro oddělení názvu příkazu (`\int_eval`) od jeho
-typové signatury (`:n`).[^8]
+častým zdrojem chyb při programování v \TeX u a dvojtečky v explu slouží pro
+oddělení názvu příkazu (`\int_eval`) od jeho typové signatury (`:n`).[^8]
 
  [^8]: Typové signatury nám umožňují definovat příkazy s jiným typem argumentu,
        než s jakým příkazy voláme. Můžeme si např. zadefinovat příkaz
@@ -393,9 +392,9 @@ vzhledu některých \LaTeX ových značek (`\itemsep`).  Rozšiřující makroba
 další aspekty vzhledu koncového dokumentu bez programování.
 
 Součástí formátu \LaTeX3 je makrobalík `xtemplate` [@latex2022xtemplate]
-[@hellstrom2003some] [@niederberger2012xtemplate], který sazečovi, grafikovi
-a vývojáři pomáhá společně připravovat stylopisy. Nejprve sazeč zadefinuje
-*typy* prvků dokumentu jako např. sekce:
+[@niederberger2012xtemplate], který sazečovi, grafikovi a vývojáři pomáhá
+společně připravovat stylopisy. Nejprve sazeč zadefinuje *typy* prvků dokumentu
+jako např. sekce:
 
 ``` latex
 \usepackage{xtemplate}
@@ -544,15 +543,14 @@ přípravy elektronických dokumentů.
 
 # Výhled do budoucnosti {#vyhleddobudoucnosti}
 
-<!-- Absence deklarativních stylových jazyků (CSS, CSL) je Achillova pata TeXu? -->
-
-<!-- https://www.texdev.net/2009/01/19/latex3-key-points/ -->
-<!-- https://www.ctan.org/pkg/xtemplate -->
-
-<!-- https://tex.stackexchange.com/a/118015/70941 -->
-<!-- http://zeeba.tv/latex3-architecture-and-current-work-in-progress/ -->
-<!-- https://www.latex-project.org/publications/2011-FMi-TUG-LaTeX3-architecture-slides.pdf -->
-<!-- https://tug.org/TUGboat/tb32-3/tb102abstracts.pdf -->
+Chybějící podpora vysokoúrovňových deklarativních stylových jazyků jako **CSS**
+a **CSL** představuje překážku pro grafiky, kteří tak musí při práci s \TeX em
+programovat. Makrobalíky jako `xtemplate` jsou první vlaštovky důsledného
+oddělení typografického programování od grafického designu. V budoucnu má být
+součástí formátu \LaTeX3 systém **LDB**~[@mittelbach2011latex3]
+[@mittelbach2013using], který grafikům umožní postihnout hraniční prípady jako
+seznam bezprostředně po nadpisu (v notaci **LDB** `!head<list`), zanořené
+seznamy (`<list*<list`) a druhý popisek obrázku (`<float*<caption>*<caption`).
 
 Veškeré jazyky, které jsme si představili v článku, jsou uměle navržené tak,
 aby byly syntakticky jednoznačné a snadno strojově čitelné. Tím se zcela liší
