@@ -12,18 +12,8 @@ jobs:
     container:
       image: witiko/markdown:latest
     steps:
-      - name: Install lilypond
-        run: |
-          set -e
-          apt update
-          apt install lilypond
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Typeset figures
-        run: |
-          set -e
-          cd figures
-          lualatex -shell-escape lilypond
       - name: Apply vlna
         run: vlna -r -l -v KkSsVvZzOoUuAaIi main.md
       - name: Typeset paper
