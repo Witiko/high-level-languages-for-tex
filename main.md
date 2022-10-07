@@ -10,7 +10,7 @@ vyžaduje netriviální programátorské dovednosti a programátorům
 poskytuje minimum vysokoúrovňových abstrakcí. V článku představuji vybrané
 značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělbu práce
 mezi spisovatele, vývojáře a grafiky a usnadňují proces
-přípravy elektronických dokumentů. Článek je volný přepis mé přednášky na
+přípravy elektronických dokumentů. Článek je přepis mé přednášky na
 valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
 
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
@@ -124,7 +124,7 @@ $ 1 + 2 = \numexpr 1 + 2 \relax $
 ``` tex
 $ 1 + 2 = \newcount\x \x=1 \advance\x by 2 \the\x $
 ```
-← Pro další primitivní typy nabízí \hologo{eTeX} příkazy `\dimexpr`,
+← Pro další primitivní typy má \hologo{eTeX} příkazy `\dimexpr`,
 `\glueexpr` a `\muglueexpr`.
 
 Stroje \hologo{LuaTeX} a LuaMeta\TeX~[@luatex2022luametatex] nabízí primitivní
@@ -158,8 +158,8 @@ zadávat a spouštět programy v jazyce Python přímo z \TeX ových dokumentů.
        `sh` a zahrnuje `bc` v základní programové výbavě; náš příklad na nich
        tedy můžete bez úpravy vysázet příkazem `pdftex --shell-escape`.
 
-Součástí formátu \LaTeX3 je makrobalík `expl3-generic`, který zpřístupňuje
-vysokoúrovňový funkcionální programovací jazyk expl3 [@latex2022style]
+Součástí experimentálního formátu \LaTeX3 je makrobalík `expl3-generic`, který
+poskytuje vysokoúrovňový programovací jazyk expl3 [@latex2022style]
 [@latex2022expl3] [@latex2022interfaces]:
 ``` tex
 \input expl3-generic\relax
@@ -189,7 +189,7 @@ je čitelnější než oddělování slov pomocíKapitálek [@sharif2010eye], me
 oddělení názvu příkazu (`\int_eval`) od jeho typové signatury (`:n`).[^8]
 Kategorie znaků v explu jsou tedy účelné.
 
- [^8]: Typové signatury nám umožňují definovat příkazy s jiným typem argumentu,
+ [^8]: Typové signatury umožňují definovat příkazy s jiným typem argumentu,
        než s jakým příkazy voláme. Můžeme si např. zadefinovat příkaz
        `\pozdrav:n`, který bude přijímat jeden argument s \TeX ovými tokeny:
        ``` tex
@@ -210,7 +210,11 @@ Kategorie znaků v explu jsou tedy účelné.
        ← Díky typovým signaturám může expl3 automaticky přetypovat argumenty,
        což zvyšuje komfort.
 
+↑
+
 # Značkovací jazyky pro spisovatele {#znackovacijazyky}
+
+↑
 
 V této sekci se podíváme na některé existující značkovací jazyky a možnosti
 jejich využití v \TeX u.
@@ -242,21 +246,21 @@ Ahoj, \LaTeX u!
 `\chapter`, můžeme místo nich použít stylovací příkazy \LaTeX u jako `\textbf`
 a primitivní příkazy \TeX ového stroje jako `\vskip`. Toto může být vhodné pro
 řešení konkrétních typografických nedostatků, které nelze řešit systémově.
-Nadměrné užívání nízkoúrovňových příkazů narušuje dělbu práce a vede k
+Nadměrné užívání nízkoúrovňových příkazů ale narušuje dělbu práce a vede k
 nejednotnému vzhledu koncového dokumentu.
 
 Mimo svět \TeX u jsou oblíbené značkovací jazyky založené na metajazyku
 **XML**. Můžeme si navrhnout buďto svůj vlastní **XML** jazyk~%
-[@wagner2017kombinace], nebo využít existující jazyk jako DocBook, **TEI**,
+[@wagner2017kombinace] nebo využít existující jazyk jako DocBook, **TEI**,
 nebo **XHTML** (vizte níže):
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <html xml:lang="cs" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-%~-
+        %~-
         <title>Ukázkový dokument v XHTML</title>
-%~+
+        %~+
         <meta name="author" content="Vít Novotný" />
     </head>
     <body>
@@ -266,33 +270,34 @@ nebo **XHTML** (vizte níže):
 </html>
 ```
 
-← Pro zpracování našeho dokumentu \TeX em můžeme využít buďto vestavěnou
+← Pro zpracování tohoto dokumentu \TeX em můžeme využít vestavěnou
 podporu **XML** v pokročilých \TeX ových formátech jako
-\hologo{ConTeXt}~[@contextgarden2022xml; @maier2019typesetting], nebo můžeme
-připravit stylopis v jazyce **XSLT**, který náš dokument převede z jazyka
-**XML** do \TeX ového formátu jako \LaTeXe, který již můžeme přímo vysázet:
+\hologo{ConTeXt}~[@contextgarden2022xml; @maier2019typesetting] nebo
+připravit stylopis v jazyce **XSLT**, který dokument převede z jazyka
+**XML** do \TeX ového formátu jako \LaTeXe, který můžeme přímo vysázet:
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <stylesheet xmlns="http://www.w3.org/1999/XSL/Transform"
-            xmlns:xhtml="http://www.w3.org/1999/xhtml"
-            version="1.0">
+            xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <output method="text" />
-    <template match="node() | @*">
-        <copy><apply-templates select="node() | @*"/></copy>
-    </template>
     <template match="xhtml:h1">
         <text>\chapter{</text>
-        <apply-templates/>
+        <value-of select="text()" />
         <text>}</text>
+    </template>
+    <template match="xhtml:p">
+        <value-of select="text()" />
+        <text>\par</text>
     </template>
 </stylesheet>
 ```
 ← **XML** jazyky mají nadstandardní podporu v softwarových knihovnách, což
-usnadňuje další zpracování dokumentů. Na rozdíl od \LaTeX u nemůže spisovatel v
+usnadňuje další zpracování **XML** dokumentů. Na rozdíl od \LaTeX u nemůže spisovatel v
 **XML** jazycích snadno řešit konkrétní typografické nedostatky, což ztěžuje
-přípravu akcidenčních a nízkonákladových dokumentů. Vysoký poměr značek vůči
-textu nutí spisovatele použít specializovaný textový editor pro snadný zápis.
+přípravu akcidenčních a nízkonákladových dokumentů.  Vzhledem k vysokému poměru
+značek vůči textu je pro spisovatele výhodné použít specializovaný textový
+editor pro snadný zápis.
 
 > V markdownu je spisovatel vždy konfrontován pouze s jednou otázkou, a je to
 > ta správná otázka: Jak by měla znít následující věta?
@@ -320,23 +325,23 @@ Ahoj, YAMLoni a *markdowne*!
 %~+
 ```
 
-← Pro zpracování našeho dokumentu \TeX em můžeme použít např. konverzní nástroj
+← Pro zpracování tohoto dokumentu \TeX em můžeme použít např. konverzní nástroj
 Pandoc~[@macfarlane2022pandoc], makrobalík
-`markdown`~[@novotny2022markdowna], nebo oba zároveň~[@drehak2021priama;
+`markdown`~[@novotny2022markdowna] nebo oba zároveň~[@drehak2021priama;
 @novotny2022markdownb, sekce 2.3].
 
-Markdown je jednoduchý jazyk, kterému chybí značky pro složitější a méně časné
+Markdown je jednoduchý jazyk, kterému chybí značky pro složitější a méně časté
 prvky jako tabulky, poznámky a citace. Pandoc i `markdown` proto nabízí
 rozšiřující značky[^12] a umožňují uživatelům vytvářet značky
 vlastní~[@macfarlane2022pandoc, sekce Filters] [@novotny2022markdowna, sekce
-2.1.2] a připojovat k prvkům doplňující informace pomocí *atributů*:[^13]
+2.1.2] nebo připojovat k prvkům doplňující informace pomocí *atributů*:[^13]
 
 ``` md
 %~-
 Ahoj, rozšiřující značky[^1] a [atributy]{.vysazej-mne-tucne}.
-%~+
 
  [^1]: Ahoj, já jsem rozšiřující značka pro poznámky.
+%~+
 ```
 
 ← Jazyk markdown původně vznikl jako preprocesor jazyka **HTML** a spisovatel
@@ -389,16 +394,16 @@ referuji o tom, jaké možnosti usnadnění nabízí grafikům formáty \LaTeXe{
 Formát \LaTeXe{} poskytuje vysokoúrovňové příkazy pro vytváření pojmenovaných
 stylů stránek (`\newpagestyle`), změny obsahu záhlaví a zápatí (`\markboth`) a
 nastavení rodiny, řezu a velikost písma nezávisle na sobě a nezávisle na
-konkrétním písmu (`\textbf`) [@latex2021fntguide]. \LaTeXe dále poskytuje
+konkrétním písmu (`\textbf`) [@latex2021fntguide]. \LaTeXe{} dále poskytuje
 délkové registry pro nastavování rozměrů sazebního zrcadla (`\textheight`) a
-vzhledu některých \LaTeX ových značek (`\itemsep`).  Rozšiřující makrobalíky
-\LaTeX u jako `enumitem`, `geometry` a `fancyhdr` umožňují grafikovi měnit
-další aspekty vzhledu koncového dokumentu bez programování.
+vzhledu některých \LaTeX ových prvků jako seznamy (`\itemsep`).  Rozšiřující
+makrobalíky \LaTeX u jako `enumitem`, `geometry` a `fancyhdr` umožňují
+grafikovi měnit další aspekty vzhledu koncového dokumentu bez programování.
 
 Součástí formátu \LaTeX3 je makrobalík `xtemplate` [@latex2022xtemplate]
-[@niederberger2012xtemplate], který sazečovi, grafikovi a vývojáři pomáhá
-společně připravovat stylopisy. Nejprve sazeč zadefinuje *typy* prvků dokumentu
-jako např. sekce:
+[@niederberger2012xtemplate], který sazeči, grafikovi a vývojáři pomáhá
+společně připravovat stylopisy. Nejprve sazeč definuje *typy* prvků dokumentu,
+např. sekce:
 
 ``` latex
 \usepackage{xtemplate}
@@ -406,7 +411,7 @@ jako např. sekce:
 \DeclareObjectType { sekce } { 1 }  \% Sekce mají 1 argument: název
 ```
 
-← Grafik pro každý typ vytvoří *šablonu*. Šablona zadává vysokoúrovňové
+Grafik pro každý typ vytvoří *šablonu*. Šablona zadává vysokoúrovňové
 grafické parametry, kterými se od sebe liší různé úrovně sekcí:
 
 ``` latex
@@ -419,7 +424,7 @@ grafické parametry, kterými se od sebe liší různé úrovně sekcí:
   }
 ```
 
-← Vývojář implementuje parametry šablony pomocí vysokoúrovňového jazyka expl3,
+Vývojář implementuje parametry šablony pomocí vysokoúrovňového jazyka expl3,
 stylovacích příkazů \LaTeX u a primitivních příkazů \TeX ového stroje:
 
 ``` latex
@@ -450,7 +455,7 @@ stylovacích příkazů \LaTeX u a primitivních příkazů \TeX ového stroje:
   }
 ```
 
-← Grafik navrhne *instance* šablony s konkrétními hodnotami parametrů pro různé
+Grafik navrhne *instance* šablony s konkrétními hodnotami parametrů pro různé
 úrovně sekcí jako kapitoly:
 
 ``` latex
@@ -470,14 +475,13 @@ příslušná instance:
 \UseInstance{sekce}{kapitola}{Název mojí kapitoly}
 ```
 
-← Při použití balíku `xtemplate` může být grafik součástí procesu přípravy
-dokumentu a průběžně upravovat grafický návrh instancí, aniž by musel
-programovat.
+Při použití balíku `xtemplate` může být grafik součástí procesu přípravy
+dokumentu a průběžně upravovat instance, aniž by musel programovat.
 
 # Doménově specifické jazyky pro experty {#domenovespecifickejazyky}
 
 Kromě programovacích, značkovacích a stylových jazyků existuje mnoho dalších
-vysokoúrovňových jazyků pro doménové experty jako knihovníci, ilustrátoři a
+vysokoúrovňových jazyků pro doménové experty, jako jsou knihovníci, ilustrátoři a
 hudebníci. V této sekci uvádím přehledový výčet několika takových jazyků.
 
 Makrobalík Ti$k$Z~[@tantau2021pgf] poskytuje jazyk pro přípravu ilustrací:
@@ -516,8 +520,8 @@ bibliografie:
 ← Jazyk Bib\LaTeX u je přesně definovaný~[@lehnman2022biblatex, sekce 2] a
 bibliografické záznamy lze validovat a převést do **XML** jazyka Bib\LaTeX ML
 pro další zpracování [@novotny2018priprava, sekce 3.4]. Bib\LaTeX{} lze
-rozšiřovat pomocí makrobalíků s citačními styly [@luptak2016sadzba]. Zamrzí
-absence podpory stylopisů ve standardním deklarativním stylovém jazyce **CSL**.
+rozšiřovat pomocí makrobalíků s citačními styly [@luptak2016sadzba]. Chybí
+podpora stylopisů ve standardním deklarativním stylovém jazyce **CSL**.
 
 Makrobalík LyLua\TeX~[@peron2019lyluatex] poskytuje jazyk pro notový zápis:
 
@@ -529,7 +533,7 @@ Makrobalík LyLua\TeX~[@peron2019lyluatex] poskytuje jazyk pro notový zápis:
         %~-
         c4 d8 e f8 g a b | c4 b8 a g8 f e d |
         c8 g' e g c,8 g' e g | c,4 e c r \bar "|."
-        %~+
+    %~+
     }
 }
 ```
@@ -541,10 +545,10 @@ Makrobalík LyLua\TeX~[@peron2019lyluatex] poskytuje jazyk pro notový zápis:
 # Závěr {#zaver}
 
 \TeX{} je strojový kód světa digitální sazby, který od spisovatelů a grafických
-návrhářů vyžaduje netriviální programátorské dovednosti a který programátorům
+návrhářů vyžaduje netriviální programátorské dovednosti a programátorům
 poskytuje minimum vysokoúrovňových abstrakcí. V článku jsme si představili
 značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělbu práce
-mezi spisovatele, vývojáře a grafické návrháře a které usnadňují proces
+mezi vývojáře, spisovatele a grafické návrháře a které usnadňují proces
 přípravy elektronických dokumentů.
 
 # Výhled do budoucnosti {#vyhleddobudoucnosti}
@@ -554,7 +558,7 @@ a **CSL** představuje překážku pro grafiky, kteří tak musí při práci s 
 programovat. Makrobalíky jako `xtemplate` jsou první vlaštovky důsledného
 oddělení typografického programování od grafického designu. V budoucnu má být
 součástí formátu \LaTeX3 systém **LDB**~[@mittelbach2011latex3]
-[@mittelbach2013using], který grafikům umožní postihnout hraniční prípady jako
+[@mittelbach2013using], který grafikům umožní postihnout hraniční případy jako
 seznam bezprostředně po nadpisu (v notaci **LDB** `!head<list`), zanořené
 seznamy (`<list*<list`) a druhý popisek obrázku (`<float*<caption>*<caption`).
 
@@ -571,10 +575,10 @@ Budoucím vysokoúrovňovým značkovacím,[^5] programovacím i stylovým jazyk
 proto může být přirozený jazyk.[^4]
 
  [^4]: Posuny v umělé inteligenci se týkají i dalších modalit, jako je obraz~%
-       [@lu2019vilbert] To grafikovi umožní doplnit textový popis o nákresy;
-       obrázek za tisíc slov. Tuto primární dokumentaci můžeme kdykoliv
-       strojově přeložit na stylopis v umělém stylovém jazyce nižší úrovně,
-       jako je **CSS**.
+       [@lu2019vilbert]. To grafikovi umožní doplnit textový popis o nákresy,
+       neboť obrázek vydá za tisíc slov. Tuto primární dokumentaci můžeme
+       kdykoliv strojově přeložit na stylopis v umělém stylovém jazyce nižší
+       úrovně, jako je **CSS**.
 
  [^5]: Dnešní jazykové modely dokážou v písemném projevu opravit překlepy~%
        [@zhou2019spelling] a doplnit chybějící interpunkci~[@zhu2021retrieving].

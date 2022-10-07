@@ -81,8 +81,9 @@
     emphasis = {\gdef\ulozenaklicovaslova{#1}},
     horizontalRule = {%
       \end{abstract}%
+      \vspace*{0.5em}
       \klicovaslova: \ulozenaklicovaslova
-      \par\vspace*{1em}\noindent
+      \par\vspace*{2em}\noindent
       \markdownSetup{
         renderers = {
           interblockSeparator = {%
@@ -118,7 +119,7 @@
 %% Definitions of various Unicode characters
 \RequirePackage{newunicodechar}
 \newunicodechar{←}{\noindent\ignorespaces}
-\newunicodechar{↑}{\vspace*{-0.5em}}
+\newunicodechar{↑}{\vspace*{-0.45em}}
 \newunicodechar{ế}{\'{\^{e}}}
 \newunicodechar{␣}{\textvisiblespace}
 \let\mp=\relax
