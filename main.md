@@ -270,17 +270,38 @@ nebo **XHTML** (vizte níže):
 </html>
 ```
 
-← Pro zpracování tohoto dokumentu \TeX em můžeme využít vestavěnou
-podporu **XML** v pokročilých \TeX ových formátech jako
-\hologo{ConTeXt}~[@contextgarden2022xml; @maier2019typesetting] nebo
-připravit stylopis v jazyce **XSLT**, který dokument převede z jazyka
-**XML** do \TeX ového formátu jako \LaTeXe, který můžeme přímo vysázet:
+← Pro zpracování tohoto dokumentu \TeX em požádáme o pomoc vývojáře.  Ten buďto
+využije vestavěnou podporu **XML** v pokročilých \TeX ových formátech jako
+\hologo{ConTeXt}~[@contextgarden2022xml; @maier2019typesetting] nebo připraví
+program v jazyce **XSLT**:
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <stylesheet xmlns="http://www.w3.org/1999/XSL/Transform"
             xmlns:xhtml="http://www.w3.org/1999/xhtml">
+            version="1.0">
     <output method="text" />
+    <template match="/xhtml:html/xhtml:head">
+        \documentclass{book}
+        \usepackage[czech]{babel}
+        <apply-templates select="*"/>
+    </template>
+    <template match="xhtml:title">
+        \title{<value-of select="text()" />}
+    </template>
+    <template match="xhtml:meta">
+        <choose>
+            <when test="@name = 'author'">
+                \author{<value-of select="@content" />}
+            </when>
+        </choose>
+    </template>
+    <template match="/xhtml:html/xhtml:body">
+        \begin{document}
+        \maketitle
+        <apply-templates select="*"/>
+        \end{document}
+    </template>
     <template match="xhtml:h1">
         <text>\chapter{</text>
         <value-of select="text()" />
@@ -288,11 +309,26 @@ připravit stylopis v jazyce **XSLT**, který dokument převede z jazyka
     </template>
     <template match="xhtml:p">
         <value-of select="text()" />
-        <text>\par</text>
     </template>
 </stylesheet>
 ```
-← **XML** jazyky mají nadstandardní podporu v softwarových knihovnách, což
+
+← Tento program převede náš **XML** dokument na následující \LaTeX ový
+dokument, který můžeme přímo vysázet:
+
+``` tex
+\documentclass{book}
+\usepackage[czech]{babel}
+\title{Ukázkový dokument v XHTML}
+\author{Vít Novotný}
+\begin{document}
+\maketitle
+\chapter{Kapitola}
+Ahoj, XHTML!
+\end{document}
+```
+
+**XML** jazyky mají nadstandardní podporu v softwarových knihovnách, což
 usnadňuje další zpracování **XML** dokumentů. Na rozdíl od \LaTeX u nemůže spisovatel v
 **XML** jazycích snadno řešit konkrétní typografické nedostatky, což ztěžuje
 přípravu akcidenčních a nízkonákladových dokumentů.  Vzhledem k vysokému poměru
