@@ -144,10 +144,8 @@ systému:
 ```tex
 $ 1 + 2 = \input|" echo 1 + 2 | bc "\relax $
 ```
-← Rozšířená varianta příkazu `\input` umožňuje integrovat \TeX ový kód s
-širším ekosystémem programové výbavy mimo instalaci \TeX u.[^6] Toho využívá
-např. \LaTeX ový balíček *Python\TeX{}* [@poore2021pythontex], který umožňuje
-zadávat a spouštět programy v jazyce Python přímo z \TeX ových dokumentů.
+← Rozšířená varianta příkazu `\input` umožňuje integrovat \TeX ový kód
+s širším ekosystémem programové výbavy mimo instalaci \TeX u.[^6]
 
  [^6]: Nevýhodou rozšířené varianty příkazu `\input` je vazba na konkrétní
        příkazovou řádku a programovou výbavu, což snižuje přenositelnost
