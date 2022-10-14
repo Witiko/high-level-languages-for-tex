@@ -225,7 +225,11 @@ jejich využití v \TeX u.
 > ---~@thompson2010pandoc [, v překladu autora]
 
 Formát \LaTeXe{} poskytuje jednoduchý značkovací jazyk pro přípravu dokumentů,
-který je možné rozšiřovat pomocí makrobalíků:
+který je možné rozšiřovat pomocí makrobalíků:[^14]
+
+ [^14]: Většina \TeX ových formátů poskytuje vlastní značkovací jazyky. Formát
+        \LaTeXe{} je však zdaleka nejznámější a také nejdůslednější v odstínění
+        spisovatele od programování a stylování.
 
 ``` latex
 \documentclass{book}
