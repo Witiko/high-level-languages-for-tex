@@ -67,7 +67,7 @@ schopni nebo ochotni používat při své práci \TeX, což má několik důvod�
 uvedená omezení nevztahují a které můžeme použít pro přípravu obsahu, stylopisů
 a programové výbavy namísto nízkoúrovňového \TeX u.
 
- [^2]: Čitelnost textu označkovaného v \TeX u zlepší, pokud značky
+ [^2]: Čitelnost textu označkovaného v \TeX u se zlepší, pokud značky
        sestavíme z interpunkčních znamének. Pokud se však pro usnadnění zápisu
        omezíme na znakovou sadu **ASCII**, skončíme s pouhými 32 znaky, z nichž
        10 už je využíváno \TeX em. Při větším množství značek by proto
