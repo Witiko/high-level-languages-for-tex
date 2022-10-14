@@ -88,7 +88,11 @@ stylových a dalších doménově specifických vysokoúrovňových jazyků pro 
 V sekci~<#zaver> shrnuji poznatky z tohoto článku. V sekci~<#vyhleddobudoucnosti> se
 zamýšlím nad dalším směřováním \TeX u a vysokoúrovňových jazyků jako takových.
 
+↑
+
 # Přehled základních pojmů {#tex}
+
+↑
 
 \TeX{} je nízkoúrovňový programovací jazyk pro digitální sazbu~[@knuth1984texbook].
 Referenční implementací \TeX u je *stroj* \TeX 90 od
@@ -109,7 +113,11 @@ pomocí příkazů jako `lualatex` a `context`.
  [^14]: Pokud neni stroj významný, hovoříme o formátech \*\LaTeX{} souhrnně
         jako o formátu \LaTeX.
 
+↑
+
 # Programovací jazyky pro vývojáře {#programovacijazyky}
+
+↑
 
 V této sekci popisuji, jaké možnosti nabízí moderní \TeX ové stroje a
 makrobalíky vývojářům. Veškeré ukázky v této sekci vypíší text $1 + 2 = 3$.
@@ -283,14 +291,19 @@ program v jazyce **XSLT**:
             xmlns:xhtml="http://www.w3.org/1999/xhtml">
             version="1.0">
     <output method="text" />
-    <template match="/xhtml:html/xhtml:head">
+
+    <!-- Následující část zpracovává prvek <head> -->
+    <template match="xhtml:head">
         \documentclass{book}
         \usepackage[czech]{babel}
+        <!-- Zpracuj zanořené prvky <title> a <meta> -->
         <apply-templates select="*"/>
     </template>
+
     <template match="xhtml:title">
         \title{<value-of select="text()" />}
     </template>
+
     <template match="xhtml:meta">
         <choose>
             <when test="@name = 'author'">
@@ -298,19 +311,22 @@ program v jazyce **XSLT**:
             </when>
         </choose>
     </template>
+
+    <!-- Následující část zpracovává prvek <body> -->
     <template match="/xhtml:html/xhtml:body">
         \begin{document}
         \maketitle
+        <!-- Zpracuj zanořené prvky <h1> a <p> -->
         <apply-templates select="*"/>
         \end{document}
     </template>
+
     <template match="xhtml:h1">
-        <text>\chapter{</text>
-        <value-of select="text()" />
-        <text>}</text>
+        \chapter{<value-of select="text()" />}
     </template>
+
     <template match="xhtml:p">
-        <value-of select="text()" />
+        <value-of select="text()" /> \par
     </template>
 </stylesheet>
 ```
@@ -326,7 +342,7 @@ dokument, který můžeme přímo vysázet:
 \begin{document}
 \maketitle
 \chapter{Kapitola}
-Ahoj, XHTML!
+Ahoj, XHTML! \par
 \end{document}
 ```
 
