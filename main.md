@@ -11,7 +11,7 @@ poskytuje minimum vysokoúrovňových abstrakcí. V článku představuji vybran
 značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělbu práce
 mezi spisovatele, vývojáře a grafiky a usnadňují proces
 přípravy elektronických dokumentů. Článek je přepis mé přednášky na
-valném shromáždění \CSTUG u 14. května 2022.~[@novotny2022vysokourovnove]
+valném shromáždění \CSTUG u 14. května 2022~[@novotny2022vysokourovnove].
 
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
 \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX, \LaTeXe, \LaTeX3,
@@ -637,7 +637,7 @@ markup, programming, and style-sheet languages for \TeX, which enable the
 division of labor between authors, programmers, and designers, and which
 simplify the process of electronic document preparation. The article
 transcribes my invited talk at the general assembly of \CSTUG{} on May 14,
-2022.~[@novotny2022vysokourovnove]
+2022~[@novotny2022vysokourovnove].
 
 *high-level languages, programming languages, markup languages, style-sheet
 languages, \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX,
