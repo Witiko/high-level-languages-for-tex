@@ -155,14 +155,20 @@ $ 1 + 2 = \input|" echo 1 + 2 | bc "\relax $
 ← Rozšířená varianta příkazu `\input` umožňuje integrovat \TeX ový kód
 s širším ekosystémem programové výbavy mimo instalaci \TeX u.[^6]
 
- [^6]: Nevýhodou rozšířené varianty příkazu `\input` je vazba na konkrétní
-       příkazovou řádku a programovou výbavu, což snižuje přenositelnost
-       dokumentů. V našem příkladu se jedná o příkazovou řádku Bourne shell z
-       **UNIX**u~V7 (také `sh`), případně o zpětně kompatibilní nadstavby jako
-       `bash`, `dash` a `ksh`, a o unixovou kalkulačku Bench calculator (`bc`).
-       Většina Linuxových distribucí používá příkazovou řádku kompatibilní s
-       `sh` a zahrnuje `bc` v základní programové výbavě; náš příklad na nich
-       tedy můžete bez úpravy vysázet příkazem `pdftex --shell-escape`.
+ [^6]: Jednou z nevýhod rozšířené varianty příkazu `\input` je vazba na
+       konkrétní příkazovou řádku a programovou výbavu, což snižuje
+       přenositelnost dokumentů. V našem příkladu se jedná o příkazovou řádku
+       Bourne shell z **UNIX**u~V7 (také `sh`), případně o zpětně kompatibilní
+       nadstavby jako `bash`, `dash` a `ksh`, a o unixovou kalkulačku Bench
+       calculator (`bc`).  Většina Linuxových distribucí ale používá příkazovou
+       řádku kompatibilní s `sh` a zahrnuje `bc` v základní programové výbavě;
+       náš příklad na nich tedy můžete bez úpravy vysázet.
+
+       Další nevýhodou rozšířené varianty příkazu `\input` je skutečnost, že
+       představuje bezpečnostní riziko a uživatel ji proto musí explicitně
+       povolit parametrem `-shell-escape`. Například pro vysázení našeho
+       příkladu musíme použít příkaz `pdftex -shell-escape` \meta{jméno
+       dokumentu}.
 
 Součástí experimentálního formátu \LaTeX3 je makrobalík `expl3-generic`, který
 poskytuje vysokoúrovňový programovací jazyk expl3 [@latex2022style]
@@ -332,7 +338,7 @@ program v jazyce **XSLT**:
 ```
 
 ← Tento program převede náš **XML** dokument na následující \LaTeX ový
-dokument, který můžeme přímo vysázet:
+dokument: %, který můžeme přímo vysázet:
 
 ``` tex
 \documentclass{book}
@@ -388,7 +394,7 @@ Markdown je jednoduchý jazyk, kterému chybí značky pro složitější a mén
 prvky jako tabulky, poznámky a citace. Pandoc i `markdown` proto nabízí
 rozšiřující značky[^12] a umožňují uživatelům vytvářet značky
 vlastní~[@macfarlane2022pandoc, sekce Filters] [@novotny2022markdowna, sekce
-2.1.2] nebo připojovat k prvkům doplňující informace pomocí *atributů*:[^13]
+2.1.2] nebo připojovat k prvkům doplňující *atributy*:[^13]
 
 ``` md
 %~-
