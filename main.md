@@ -202,7 +202,7 @@ oddělení názvu příkazu (`\int_eval`) od jeho typové signatury (`:n`).[^8]
 Kategorie znaků v explu jsou tedy účelné.
 
  [^8]: Typové signatury umožňují definovat příkazy s jiným typem argumentu,
-       než s jakým příkazy voláme. Můžeme si např. zadefinovat příkaz
+       než s jakým příkazy voláme. Můžeme např. zadefinovat příkaz
        `\pozdrav:n`, který bude přijímat jeden argument s \TeX ovými tokeny:
        ``` tex
        \cs_new:Nn \pozdrav:n { Ahoj,~#1! }
