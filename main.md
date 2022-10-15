@@ -634,11 +634,11 @@ programu na základě pokynů zadaných v přirozeném jazyce~[@papers2022code].
 Budoucím vysokoúrovňovým značkovacím,[^5] programovacím i stylovým jazykem
 proto může být přirozený jazyk.[^4]
 
- [^4]: Posuny v umělé inteligenci se týkají i dalších modalit, jako je obraz~%
+ [^4]: Posuny v umělé inteligenci se týkají i dalších modalit, jako je např. obraz~%
        [@lu2019vilbert]. To grafikovi umožní doplnit textový popis o nákresy,
        neboť obrázek vydá za tisíc slov. Tuto primární dokumentaci můžeme
-       kdykoliv strojově přeložit na stylopis v umělém jazyce nižší úrovně,
-       jako je **CSS**.
+       kdykoliv strojově přeložit na stylopis v jazyce nižší úrovně, jako je
+       **CSS**.
 
  [^5]: Dnešní jazykové modely dokážou v písemném projevu opravit překlepy~%
        [@zhou2019spelling] a doplnit chybějící interpunkci~[@zhu2021retrieving].
