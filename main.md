@@ -170,8 +170,8 @@ s širším ekosystémem programové výbavy mimo instalaci \TeX u.[^6]
        příkladu musíme použít příkaz `pdftex -shell-escape` \meta{jméno
        dokumentu}.
 
-Součástí experimentálního formátu \LaTeX3 je makrobalík `expl3-generic`, který
-poskytuje vysokoúrovňový programovací jazyk expl3 [@latex2022style]
+Součástí experimentálního formátu \LaTeX3 je makrobalík *`expl3-generic`*,
+který poskytuje vysokoúrovňový programovací jazyk expl3 [@latex2022style]
 [@latex2022expl3] [@latex2022interfaces]:
 ``` tex
 \input expl3-generic\relax
@@ -387,7 +387,7 @@ Ahoj, YAMLoni a *markdowne*!
 
 ← Pro zpracování tohoto dokumentu \TeX em můžeme použít např. konverzní nástroj
 Pandoc~[@macfarlane2022pandoc], makrobalík
-`markdown`~[@novotny2022markdowna] nebo oba zároveň~[@drehak2021priama;
+*`markdown`*~[@novotny2022markdowna] nebo oba zároveň~[@drehak2021priama;
 @novotny2022markdownb, sekce 2.3].
 
 Markdown je jednoduchý jazyk, kterému chybí značky pro složitější a méně časté
@@ -457,10 +457,10 @@ nastavení rodiny, řezu a velikost písma nezávisle na sobě a nezávisle na
 konkrétním písmu (`\textbf`) [@latex2021fntguide]. \LaTeXe{} dále poskytuje
 délkové registry pro nastavování rozměrů sazebního zrcadla (`\textheight`) a
 vzhledu některých \LaTeX ových prvků jako seznamy (`\itemsep`).  Rozšiřující
-makrobalíky \LaTeX u jako `enumitem`, `geometry` a `fancyhdr` umožňují
+makrobalíky \LaTeX u jako *`enumitem`*, *`geometry`* a *`fancyhdr`* umožňují
 grafikovi měnit další aspekty vzhledu koncového dokumentu bez programování.
 
-Součástí formátu \LaTeX3 je makrobalík `xtemplate` [@latex2022xtemplate]
+Součástí formátu \LaTeX3 je makrobalík *`xtemplate`* [@latex2022xtemplate]
 [@niederberger2012xtemplate], který sazeči, grafikovi a vývojáři pomáhá
 společně připravovat stylopisy. Nejprve sazeč definuje *typy* prvků dokumentu,
 např. sekce:
@@ -544,7 +544,7 @@ Kromě programovacích, značkovacích a stylových jazyků existuje mnoho dalš
 vysokoúrovňových jazyků pro doménové experty, jako jsou knihovníci, ilustrátoři a
 hudebníci. V této sekci uvádím přehledový výčet několika takových jazyků.
 
-Makrobalík Ti$k$Z~[@tantau2021pgf] poskytuje jazyk pro přípravu ilustrací:
+Makrobalík *Ti$k$Z*~[@tantau2021pgf] poskytuje jazyk pro přípravu ilustrací:
 
 ``` tex
 \usemodule[tikzducks]
@@ -561,9 +561,9 @@ Makrobalík Ti$k$Z~[@tantau2021pgf] poskytuje jazyk pro přípravu ilustrací:
  /figures/tikz-ducks.tex
 
 ← Jazyk Ti$k$Zu je nezávislý na použitém \TeX ovém formátu (zde ConTeXt MkIV) a
-lze ho rozšiřovat pomocí makrobalíků (zde `tikzducks`~[@carter2020tikz]).
+lze ho rozšiřovat pomocí makrobalíků (zde *`tikzducks`*~[@carter2020tikz]).
 
-Makrobalík Bib\LaTeX~[@lehnman2022biblatex] poskytuje jazyk pro přípravu
+Makrobalík *Bib\LaTeX*~[@lehnman2022biblatex] poskytuje jazyk pro přípravu
 bibliografie:
 
 ``` bib
@@ -583,7 +583,7 @@ pro další zpracování [@novotny2018priprava, sekce 3.4]. Bib\LaTeX{} lze
 rozšiřovat pomocí makrobalíků s citačními styly [@luptak2016sadzba]. Chybí
 podpora stylopisů ve standardním deklarativním stylovém jazyce **CSL**.
 
-Makrobalík LyLua\TeX~[@peron2019lyluatex] poskytuje jazyk pro notový zápis:
+Makrobalík *LyLua\TeX*~[@peron2019lyluatex] poskytuje jazyk pro notový zápis:
 
 ``` tex
 \score {
@@ -615,7 +615,7 @@ přípravy elektronických dokumentů.
 
 Chybějící podpora vysokoúrovňových deklarativních stylových jazyků jako **CSS**
 a **CSL** představuje překážku pro grafiky, kteří tak musí při práci s \TeX em
-programovat. Makrobalíky jako `xtemplate` jsou první vlaštovky důsledného
+programovat. Makrobalíky jako *`xtemplate`* jsou první vlaštovky důsledného
 oddělení typografického programování od grafického designu. V budoucnu má být
 součástí formátu \LaTeX3 systém **LDB**~[@mittelbach2011latex3]
 [@mittelbach2013using], který grafikům umožní postihnout hraniční případy jako
