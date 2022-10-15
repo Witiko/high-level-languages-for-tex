@@ -537,6 +537,11 @@ příslušná instance:
 
 Při použití balíku `xtemplate` může být grafik součástí procesu přípravy
 dokumentu a průběžně upravovat instance, aniž by musel programovat.
+V budoucnu má být součástí formátu \LaTeX3 systém
+**LDB**~[@mittelbach2011latex3] [@mittelbach2013using], který grafikům oproti
+makrobalíku *`xtemplate`* umožní postihnout vzájemné interakce mezi prvky jako
+např. seznam bezprostředně po nadpisu (v notaci **LDB** `!head<list`), zanořené
+seznamy (`<list*<list`) a druhý popisek obrázku (`<float*<caption>*<caption`).
 
 # Doménově specifické jazyky pro experty {#domenovespecifickejazyky}
 
@@ -590,15 +595,12 @@ Makrobalík *LyLua\TeX*~[@peron2019lyluatex] poskytuje jazyk pro notový zápis:
     \relative c' {
         \time 4/4
         \clef treble
-        %~-
-        c4 d8 e f8 g a b | c4 b8 a g8 f e d |
-        c8 g' e g c,8 g' e g | c,4 e c r \bar "|."
-    %~+
+        c4 d8 e f r g a \bar "|."
     }
 }
 ```
 
-![lilypond](lilypond)
+ /figures/lilypond.tex
 
 ← LyLua\TeX{} potřebuje \TeX ový formát Lua\LaTeX{} a instalovaný program LilyPond.
 
@@ -616,16 +618,6 @@ spisovatele a v doménově specifickém jazyce Bib\LaTeX{} pro knihovníky.
 Zdrojový kód článku je dostupný online.~[@novotny2022high]
 
 # Výhled do budoucnosti {#vyhleddobudoucnosti}
-
-Chybějící podpora vysokoúrovňových deklarativních stylových jazyků jako **CSS**
-a **CSL** představuje překážku pro grafiky, kteří tak musí při práci s \TeX em
-programovat. Makrobalíky jako *`xtemplate`* jsou první vlaštovky důsledného
-oddělení typografického programování od grafického designu. V budoucnu má být
-součástí formátu \LaTeX3 systém **LDB**~[@mittelbach2011latex3]
-[@mittelbach2013using], který grafikům oproti makrobalíku *`xtemplate`* umožní
-postihnout vzájemné interakce mezi prvky jako např. seznam bezprostředně po
-nadpisu (v notaci **LDB** `!head<list`), zanořené seznamy (`<list*<list`) a
-druhý popisek obrázku (`<float*<caption>*<caption`).
 
 Veškeré jazyky, které jsme si představili v článku, jsou uměle navržené tak,
 aby byly syntakticky jednoznačné a snadno strojově čitelné. Tím se zcela liší
