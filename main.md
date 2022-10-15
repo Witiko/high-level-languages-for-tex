@@ -618,9 +618,10 @@ a **CSL** představuje překážku pro grafiky, kteří tak musí při práci s 
 programovat. Makrobalíky jako *`xtemplate`* jsou první vlaštovky důsledného
 oddělení typografického programování od grafického designu. V budoucnu má být
 součástí formátu \LaTeX3 systém **LDB**~[@mittelbach2011latex3]
-[@mittelbach2013using], který grafikům umožní postihnout hraniční případy jako
-seznam bezprostředně po nadpisu (v notaci **LDB** `!head<list`), zanořené
-seznamy (`<list*<list`) a druhý popisek obrázku (`<float*<caption>*<caption`).
+[@mittelbach2013using], který grafikům oproti makrobalíku *`xtemplate`* umožní
+postihnout vzájemné interakce mezi prvky jako např. seznam bezprostředně po
+nadpisu (v notaci **LDB** `!head<list`), zanořené seznamy (`<list*<list`) a
+druhý popisek obrázku (`<float*<caption>*<caption`).
 
 Veškeré jazyky, které jsme si představili v článku, jsou uměle navržené tak,
 aby byly syntakticky jednoznačné a snadno strojově čitelné. Tím se zcela liší
