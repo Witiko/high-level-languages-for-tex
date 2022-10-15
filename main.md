@@ -611,6 +611,10 @@ značkovací, programovací a stylové jazyky pro \TeX, které umožňují dělb
 mezi vývojáře, spisovatele a grafické návrháře a které usnadňují proces
 přípravy elektronických dokumentů.
 
+Článek jsem připravil ve vysokoúrovňovém značkovacím jazyku markdown pro
+spisovatele a v doménově specifickém jazyce Bib\LaTeX{} pro knihovníky.
+Zdrojový kód článku je dostupný online.~[@novotny2022high]
+
 # Výhled do budoucnosti {#vyhleddobudoucnosti}
 
 Chybějící podpora vysokoúrovňových deklarativních stylových jazyků jako **CSS**
