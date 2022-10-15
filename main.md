@@ -552,8 +552,8 @@ Makrobalík Ti$k$Z~[@tantau2021pgf] poskytuje jazyk pro přípravu ilustrací:
 \starttext
 \starttikzpicture
 \duck[tophat, bowtie]
-\duck[scale=0.3, xshift=60pt,
-                 yshift=40pt]
+\duck[xshift=44pt, yshift=55pt, scale=0.3]
+\duck[xshift=60pt, yshift=40pt, scale=0.3]
 \stoptikzpicture
 \stoptext
 ```
