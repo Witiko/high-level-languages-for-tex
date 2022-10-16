@@ -2,6 +2,8 @@
 \selectlanguage{czech}
 \usepackage[utf8]{inputenc}
 \usepackage[all]{nowidow}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
 \usepackage{csquotes}
 \usepackage[
   backend=biber,
@@ -25,6 +27,7 @@
   theme=witiko/csbulletin,
 ]{markdown}
 \usepackage{hologo}
+\newcommand\meta[1]{\ensuremath{\langle\text{\textit{#1}}\rangle}}
 \usepackage{tikz}
 \usetikzlibrary{ducks}
 \setcounter{secnumdepth}{1}
