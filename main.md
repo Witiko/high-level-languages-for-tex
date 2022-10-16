@@ -535,7 +535,7 @@ příslušná instance:
 \UseInstance{sekce}{kapitola}{Název mojí kapitoly}
 ```
 
-Při použití balíku `xtemplate` může být grafik součástí procesu přípravy
+Při použití makrobalíku *`xtemplate`* může být grafik součástí procesu přípravy
 dokumentu a průběžně upravovat instance, aniž by musel programovat.
 V budoucnu má být součástí formátu \LaTeX3 systém
 **LDB**~[@mittelbach2011latex3] [@mittelbach2013using], který grafikům oproti
