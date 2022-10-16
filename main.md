@@ -626,12 +626,14 @@ aby byly syntakticky jednoznačné a snadno strojově čitelné. Tím se zcela l
 od přirozeného jazyka, který je víceznačný a jeho strojové zpracování bylo
 svatým grálem informatiky od jejího vzniku. Umělé jazyky jsou překážkou pro
 doménové experty, kteří ovládají svůj mateřský jazyk, ale nejsou vystudovaní
-informatici. V posledních pěti letech došlo na poli umělé inteligence k
-významným posunům~[@devlin2018bert] [@brown2020language], které zvýšily
-strojovou čitelnost přirozeného jazyka a umožňují automaticky generovat kód
-programu na základě pokynů zadaných v přirozeném jazyce~[@papers2022code].
-Budoucím vysokoúrovňovým značkovacím,[^5] programovacím i stylovým jazykem
-proto může být přirozený jazyk.[^4]
+informatici.
+
+V posledních pěti letech došlo na poli umělé inteligence k významným
+posunům~[@devlin2018bert] [@brown2020language], které zvýšily strojovou
+čitelnost přirozeného jazyka a umožňují automaticky generovat kód programu na
+základě pokynů zadaných v přirozeném jazyce~[@papers2022code].  Budoucím
+vysokoúrovňovým značkovacím,[^5] programovacím i stylovým jazykem proto může
+být přirozený jazyk.[^4]
 
  [^4]: Posuny v umělé inteligenci se týkají i dalších modalit, jako je např. obraz~%
        [@lu2019vilbert]. To grafikovi umožní doplnit textový popis o nákresy,
