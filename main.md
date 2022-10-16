@@ -99,11 +99,11 @@ Referenční implementací \TeX u je *stroj* \TeX 90 od
 Donalda Knutha~[@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eTeX}~%
 [@breitenlohner1998etex], \hologo{pdfTeX}~[@thanh2022pdftex] a \hologo{LuaTeX}~%
 [@luatex2022luatex] rozšiřují \TeX 90 o dodatečné primitivní příkazy, které
-zvyšují vývojářský komfort.  *Makrobalíky* jako plain~[@knuth2021plain],
-\LaTeX~[@lamport1994latex] a \hologo{ConTeXt}~[@hagen2001context] staví z
-primitiv \TeX ových strojů vysokoúrovňové značkovací a programovací jazyky pro
-spisovatele a vývojáře.
+zvyšují vývojářský komfort.
 
+*Makrobalíky* jako plain~[@knuth2021plain], \LaTeX~[@lamport1994latex] a
+\hologo{ConTeXt}~[@hagen2001context] staví z primitiv \TeX ových strojů
+vysokoúrovňové značkovací a programovací jazyky pro spisovatele a vývojáře.
 *Formáty* odpovídají kombinaci stroje a makrobalíku, např.
 $\text{\hologo{LuaTeX}} + \text{\LaTeX} = \text{Lua\LaTeX}$[^14] a
 $\text{\hologo{LuaTeX}} + \text{\hologo{ConTeXt}} = \text{\hologo{ConTeXt}
