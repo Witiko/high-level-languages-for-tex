@@ -595,7 +595,9 @@ Makrobalík *LyLua\TeX*~[@peron2019lyluatex] poskytuje jazyk pro notový zápis:
     \relative c' {
         \time 4/4
         \clef treble
+        %~-
         c4 d8 e f r g a \bar "|."
+    %~+
     }
 }
 ```
