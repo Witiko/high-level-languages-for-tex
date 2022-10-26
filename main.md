@@ -337,8 +337,9 @@ program v jazyce **XSLT**:
 </stylesheet>
 ```
 
-← Tento program převede náš **XML** dokument na následující \LaTeX ový
-dokument: %, který můžeme přímo vysázet:
+← Příkazem `xsltproc` \meta{jméno **XSLT** programu} \meta{jméno **XML**
+dokumentu} ze softwarové knihovny `libxslt` převedeme náš **XML** dokument na
+\LaTeX ový dokument:
 
 ``` tex
 \documentclass{book}
@@ -352,12 +353,11 @@ Ahoj, XHTML! \par
 \end{document}
 ```
 
-**XML** jazyky mají nadstandardní podporu v softwarových knihovnách, což
-usnadňuje další zpracování **XML** dokumentů. Na rozdíl od \LaTeX u nemůže spisovatel v
-**XML** jazycích snadno řešit konkrétní typografické nedostatky, což ztěžuje
-přípravu akcidenčních a nízkonákladových dokumentů.  Vzhledem k vysokému poměru
-značek vůči textu je pro spisovatele výhodné použít specializovaný textový
-editor pro snadný zápis.
+**XML** jazyky mají dobrou podporu v softwarových knihovnách, což usnadňuje
+další zpracování dokumentů. Na rozdíl od \LaTeX u nemůže spisovatel v **XML**
+jazycích snadno řešit konkrétní typografické nedostatky, což ztěžuje přípravu
+akcidenčních a nízkonákladových dokumentů.  Vzhledem k vysokému poměru značek
+vůči textu je rpo spisovatele výhodné použít specializovaný textový editor pro snadný zápis.
 
 > V markdownu je spisovatel vždy konfrontován pouze s jednou otázkou, a je to
 > ta správná otázka: Jak by měla znít následující věta?
