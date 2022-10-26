@@ -539,7 +539,7 @@ Při použití makrobalíku *`xtemplate`* může být grafik součástí procesu
 dokumentu a průběžně upravovat instance, aniž by musel programovat.
 V budoucnu má být součástí formátu \LaTeX3 systém
 **LDB**~[@mittelbach2011latex3] [@mittelbach2013using], který grafikům oproti
-makrobalíku *`xtemplate`* umožní postihnout vzájemné interakce mezi prvky jako
+makrobalíku *`xtemplate`* umožní postihnout vzájemné interakce mezi prvky, jako
 např. seznam bezprostředně po nadpisu (v notaci **LDB** `!head<list`), zanořené
 seznamy (`<list*<list`) a druhý popisek obrázku (`<float*<caption>*<caption`).
 
