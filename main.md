@@ -391,7 +391,7 @@ Pandoc~[@macfarlane2022pandoc], makrobalík
 @novotny2022markdownb, sekce 2.3].
 
 Markdown je jednoduchý jazyk, kterému chybí značky pro složitější a méně časté
-prvky jako tabulky, poznámky a citace. Pandoc i `markdown` proto nabízí
+prvky jako tabulky, poznámky a citace. Pandoc i *`markdown`* proto nabízí
 rozšiřující značky[^12] a umožňují uživatelům vytvářet značky
 vlastní~[@macfarlane2022pandoc, sekce Filters] [@novotny2022markdowna, sekce
 2.1.2] nebo připojovat k prvkům doplňující *atributy*:[^13]
@@ -407,12 +407,12 @@ Ahoj, rozšiřující značky[^1] a [atributy]{.vysazej-mne-tucne}.
 ← Jazyk markdown původně vznikl jako preprocesor jazyka **HTML** a spisovatel
 v něm proto může využívat také **HTML** značky:[^10]
 
- [^10]: V `markdown`u je třeba zápis **HTML** značek povolit volbou `html`.
+ [^10]: V *`markdown`u* je třeba zápis **HTML** značek povolit volbou `html`.
 
- [^12]: V Pandocu a `markdown`u je třeba zápis tabulek, poznámek a citací
+ [^12]: V Pandocu a *`markdown`u* je třeba zápis tabulek, poznámek a citací
         povolit volbami `pipe_tables`, `footnotes` a `citations`.
 
- [^13]: V Pandocu a `markdown`u je třeba zápis atributů povolit volbami
+ [^13]: V Pandocu a *`markdown`u* je třeba zápis atributů povolit volbami
         `header_attributes`, `fenced_code_attributes`, `inline_code_attributes`
         a `link_attributes`.
 
@@ -425,7 +425,7 @@ typografických nedostatků může spisovatel v markdownu použít i primitivní
 příkazy \TeX ového stroje a příkazy \TeX ových formátů:[^11]
 
  [^11]: V Pandocu je třeba zápis matematiky a \TeX ových značek povolit volbami
-        `tex_math_dollars` a `raw_attribute`. V `markdown`u je třeba povolit
+        `tex_math_dollars` a `raw_attribute`. V *`markdown`u* je třeba povolit
         volbu `hybrid`.
 
 ``` tex
