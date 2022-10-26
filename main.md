@@ -617,7 +617,7 @@ přípravy elektronických dokumentů.
 
 Článek jsem připravil ve vysokoúrovňovém značkovacím jazyku markdown pro
 spisovatele a v doménově specifickém jazyce Bib\LaTeX{} pro knihovníky.
-Zdrojový kód článku je dostupný online.~[@novotny2022high]
+Zdrojový kód článku je dostupný online~[@novotny2022high].
 
 # Výhled do budoucnosti {#vyhleddobudoucnosti}
 
