@@ -11,11 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: witiko/markdown:latest
+      options: --user root --security-opt seccomp=unconfined
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Apply vlna
         run: vlna -r -l -v KkSsVvZzOoUuAaIi main.md
+      - name: Install Lilypond
+        run: |
+          set -e
+          apt-get -qy update
+          apt-get -qy install --no-install-recommends lilypond
+      - name: Typeset score with LyLuatex
+        run: latexmk -lualatex -shell-escape -cd figures/lilypond-score.tex
       - name: Typeset paper
         run: latexmk -pdf -shell-escape main.tex
       - name: Upload artifacts

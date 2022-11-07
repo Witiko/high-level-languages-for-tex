@@ -5,8 +5,9 @@ Zpravodaje CSTUGu 2022/1–4.
 
 Článek vysázíte následujícími příkazy:
 
-``` tex
+``` bash
 vlna -r -l -v KkSsVvZzOoUuAaIi main.md
+latexmk -lualatex -shell-escape -cd figures/lilypond-score.tex  # vyžaduje lilypond
 latexmk -pdf -shell-escape main.tex
 ```
 
