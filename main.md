@@ -79,7 +79,7 @@ a programové výbavy namísto nízkoúrovňového \TeX u.
        při větším množství značek typicky místo interpunkce používají upovídaná
        \TeX ová makra.
 
- ![un-lion-de-paris](un-lion-de-paris "Un Lion de Paris (Grandville, 1840--1842)")
+ ![un-lion-de-paris](un-lion-de-paris "Vysokoúrovňový \TeX ový lev (Grandville, 1840--1842)")
 
 V sekci~<#tex> shrnuji základní pojmy související s \TeX em, jako jsou stroje,
 makrobalíky a formáty. V sekcích <#programovacijazyky> až
