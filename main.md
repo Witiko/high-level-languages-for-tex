@@ -30,8 +30,8 @@ který dokáže zastoupit několik rolí, se může v případě potřeby omezit
 jen na jednu z nich a věnovat jí svou plnou a ničím nerušenou pozornost.
 
  [^1]: Čtenář může namítnout, že rozdělení dokumentu na nezávislé části
-       je fikce: Jsou obrázky v textu doménou spisovatele nebo ilustrátora?
-       Může spisovatel měnit písmo a barvu textu či způsob číslování seznamů
+       je fikce: Jsou obrázky v textu doménou spisovatele, nebo ilustrátora?
+       Může spisovatel měnit písmo a barvu textu či způsob číslování seznamů,
        nebo jde o úkol grafika? Kde jsou hranice mezi rolemi grafika,
        sazeče a vývojáře?
 
@@ -41,7 +41,7 @@ jen na jednu z nich a věnovat jí svou plnou a ničím nerušenou pozornost.
        při kterém jsou role volnější a mezi účastníky procesu přípravy dokumentu
        probíhá soustavná komunikace. Autor článku má zkušenosti převážně s
        přípravou odborných a technických dokumentů, u kterých jsou
-       jednotvárnost a kompozicialita úmyslnými prvky stylu. Takové dokumenty
+       jednotvárnost a kompozicionalita úmyslnými prvky stylu. Takové dokumenty
        lze snadno rozdělit na dílčí části bez újmy na celku.
 
 \TeX ový dokument můžeme rozdělit na obsah, stylopisy a programovou výbavu
@@ -102,13 +102,13 @@ Donalda Knutha~[@knuth1986texprogram]. Moderní \TeX ové stroje jako \hologo{eT
 zvyšují vývojářský komfort.
 
 *Makrobalíky* jako plain~[@knuth2021plain], \LaTeX~[@lamport1994latex] a
-\hologo{ConTeXt}~[@hagen2001context] staví z primitiv \TeX ových strojů
-vysokoúrovňové značkovací a programovací jazyky pro spisovatele a vývojáře.
-*Formáty* odpovídají kombinaci stroje a makrobalíku, např.
+\hologo{ConTeXt}~[@hagen2001context] staví z primitivních příkazů \TeX ových
+strojů vysokoúrovňové značkovací a programovací jazyky pro spisovatele a
+vývojáře.  *Formáty* odpovídají kombinaci stroje a makrobalíku, např.
 $\text{\hologo{LuaTeX}} + \text{\LaTeX} = \text{Lua\LaTeX}$[^14] a
 $\text{\hologo{LuaTeX}} + \text{\hologo{ConTeXt}} = \text{\hologo{ConTeXt}
-MkIV}$. S formáty pracuje sazeč při přípravě dokumentu z příkazové řádky
-pomocí příkazů jako `lualatex` a `context`.
+MkIV}$. Pomocí formátů připravuje sazeč dokumenty z příkazové řádky
+s příkazy jako `lualatex` a `context`.
 
  [^14]: Pokud neni stroj významný, hovoříme o formátech \*\LaTeX{} souhrnně
         jako o formátu \LaTeX.
@@ -150,7 +150,7 @@ Stroje \hologo{pdfTeX} a \hologo{LuaTeX} rozšiřují primitivní příkaz `\inp
 variantu, která spouští libovolné programy pomocí příkazové řádky operačního
 systému:
 ```tex
-$ 1 + 2 = \input|" echo 1 + 2 | bc "\relax $
+$ 1 + 2 = \input|" echo 1 + 2 | bc " $
 ```
 ← Rozšířená varianta příkazu `\input` umožňuje integrovat \TeX ový kód
 s širším ekosystémem programové výbavy mimo instalaci \TeX u.[^6]
@@ -174,7 +174,7 @@ Součástí experimentálního formátu \LaTeX3 je makrobalík *`expl3-generic`*
 který poskytuje vysokoúrovňový programovací jazyk expl3 [@latex2022style]
 [@latex2022expl3] [@latex2022interfaces]:
 ``` tex
-\input expl3-generic\relax
+\input expl3-generic
 \ExplSyntaxOn
 $ 1 + 2 = \int_eval:n { 1 + 2 } $
 \ExplSyntaxOff
@@ -357,7 +357,7 @@ Ahoj, XHTML! \par
 další zpracování dokumentů. Na rozdíl od \LaTeX u nemůže spisovatel v **XML**
 jazycích snadno řešit konkrétní typografické nedostatky, což ztěžuje přípravu
 akcidenčních a nízkonákladových dokumentů.  Vzhledem k vysokému poměru značek
-vůči textu je rpo spisovatele výhodné použít specializovaný textový editor pro snadný zápis.
+vůči textu je pro spisovatele výhodné použít specializovaný textový editor pro snadný zápis.
 
 > V markdownu je spisovatel vždy konfrontován pouze s jednou otázkou, a je to
 > ta správná otázka: Jak by měla znít následující věta?
