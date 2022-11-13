@@ -82,8 +82,13 @@
     horizontalRule = {%
       \end{abstract}%
       \vspace*{0.5em}
-      \klicovaslova: \ulozenaklicovaslova
-      \par\vspace*{2em}\noindent
+      \begingroup
+        \hyphenpenalty=10000
+        \exhyphenpenalty=10000
+        \klicovaslova: \ulozenaklicovaslova
+        \par
+      \endgroup
+      \vspace*{2em}\noindent
       \markdownSetup{
         renderers = {
           interblockSeparator = {%
@@ -102,7 +107,14 @@
             \printbibliography[heading=none]%
             \markdownSetup{
               renderers = {
-                emphasis = {\keywords: ####1},
+                emphasis = {%
+                  \begingroup
+                    \hyphenpenalty=10000
+                    \exhyphenpenalty=10000
+                    \keywords: ####1%
+                    \par
+                  \endgroup
+                },
                 horizontalRule = {%
                   \end{summary}%
                   \csbul@podepis
