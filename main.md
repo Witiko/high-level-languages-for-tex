@@ -15,7 +15,7 @@ valném shromáždění \CSTUG u 14. května 2022~[@novotny2022vysokourovnove].
 
 *vysokoúrovňové jazyky, programovací jazyky, značkovací jazyky, stylové jazyky,
 \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX, \LaTeXe, \LaTeX3,
-Python\TeX, expl3, **XML**, DocBook, **TEI**, **XHTML**, **XSLT**, **CSS**, **CSL**,
+expl3, **XML**, DocBook, **TEI**, **XHTML**, **XSLT**, **CSS**, **CSL**,
 \hologo{ConTeXt}, **HTML**, markdown, **YAML**, Pandoc, Ti$k$Z, Bib\LaTeX,
 Bib\LaTeX ML, Ly\hologo{LuaTeX}*
 
@@ -664,8 +664,8 @@ transcribes my invited talk at the general assembly of \CSTUG{} on May 14,
 
 *high-level languages, programming languages, markup languages, style-sheet
 languages, \hologo{eTeX}, \hologo{pdfTeX}, \hologo{LuaTeX}, LuaMeta\TeX,
-\LaTeXe, \LaTeX3, Python\TeX, expl3, **XML**, DocBook, **TEI**, **XHTML**,
-**XSLT**, **CSS**, **CSL**, \hologo{ConTeXt}, **HTML**, markdown, **YAML**, Pandoc,
+\LaTeXe, \LaTeX3, expl3, **XML**, DocBook, **TEI**, **XHTML**, **XSLT**,
+**CSS**, **CSL**, \hologo{ConTeXt}, **HTML**, markdown, **YAML**, Pandoc,
 Ti$k$Z, Bib\LaTeX, Bib\LaTeX ML, Ly\hologo{LuaTeX}*
 
 * * *
