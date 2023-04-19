@@ -24,3 +24,21 @@ z následujících souborů:
   BibLaTeX pro knihovníky
 
  [1]: https://github.com/Witiko/high-level-languages-for-tex/releases/download/latest/main.pdf
+
+## Citace
+
+Pro citování tohoto článku použijte následující kód pro BibLaTeX:
+
+``` bib
+@article{novotny2022vysokourovnove,
+  title = {Vysokoúrovňové jazyky pro \TeX},
+  author = {Vít Novotný},
+  journal = {Zpravodaj \CSTUG u},
+  issn = {1211-6661},
+  year = {2022},
+  volume = {32},
+  number = {1--4},
+  doi = {10.5300/2022-1-4/35},
+  pages = {35-48},
+}
+```
