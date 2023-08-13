@@ -302,7 +302,9 @@ program v jazyce **XSLT**:
     <template match="xhtml:head">
         \documentclass{book}
         \usepackage[czech]{babel}
+        %~-
         <!-- Zpracuj zanořené prvky <title> a <meta> -->
+        %~+
         <apply-templates select="*"/>
     </template>
 
@@ -322,7 +324,9 @@ program v jazyce **XSLT**:
     <template match="/xhtml:html/xhtml:body">
         \begin{document}
         \maketitle
+        %~-
         <!-- Zpracuj zanořené prvky <h1> a <p> -->
+        %~+
         <apply-templates select="*"/>
         \end{document}
     </template>
