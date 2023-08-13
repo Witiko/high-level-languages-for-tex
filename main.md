@@ -236,7 +236,7 @@ jejich využití v \TeX u.
 > z toho prostého důvodu, že \LaTeX{} dává spisovateli do rukou příliš velkou moc:
 > Vždy existuje další makrobalík, který můžeme zavést v preambuli, stejně jako
 > vždy existuje další rozbalovací nabídka ve Wordu.
-> ---~@thompson2010pandoc [, v překladu autora]
+> ---~@thompson2010pandoc [v překladu autora]
 
 Formát \LaTeXe{} poskytuje jednoduchý značkovací jazyk pro přípravu dokumentů,
 který je možné rozšiřovat pomocí makrobalíků:[^14]
@@ -365,7 +365,7 @@ vůči textu je pro spisovatele výhodné použít specializovaný textový edit
 
 > V markdownu je spisovatel vždy konfrontován pouze s jednou otázkou, a je to
 > ta správná otázka: Jak by měla znít následující věta?
-> ---~@thompson2010pandoc [, v překladu autora]
+> ---~@thompson2010pandoc [v překladu autora]
 
 Odlehčené značkovací jazyky jako **YAML**oň[^9]~[@benkiki2021yaml]
 a markdown~[@gruber2004markdown] minimalizují poměr značek vůči textu pro
