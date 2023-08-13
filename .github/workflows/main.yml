@@ -10,7 +10,7 @@ jobs:
     name: Typeset paper
     runs-on: ubuntu-latest
     container:
-      image: witiko/markdown:latest
+      image: witiko/markdown:2.23.0-0-g0b22f91-latest
       options: --user root --security-opt seccomp=unconfined
     steps:
       - name: Checkout repository
